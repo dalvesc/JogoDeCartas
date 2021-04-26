@@ -1,3 +1,4 @@
+package factory;
 import model.Carta;
 
 public abstract class NaipeFactory {
