@@ -1,3 +1,6 @@
+package model;
+
+
 public class Carta {
     
     private String naipe, valor, cor;
@@ -48,11 +51,19 @@ public class Carta {
 
     /**
      *
+     * @param cor
+     * 
+     */
+    public String getCor() {
+        return cor;
+    }
+
+    /**
+     *
      * @param face
      * 
      */
     public void setFace(boolean face) {
         this.face = face;
-    } 
-    
+    }
 }
