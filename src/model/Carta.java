@@ -1,6 +1,10 @@
 package model;
 
 
+/**
+ *
+ * @author Adlla Katarine e Daniel Alves
+ */
 public class Carta {
     
     private String naipe, valor, cor;

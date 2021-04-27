@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 
 
+/**
+ *
+ * @author Adlla Katarine e Daniel Alves
+ */
 public class Baralho {
 
     private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
