@@ -8,7 +8,7 @@ import util.Embaralhar;
 public class Baralho {
 
     private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
-    private ArrayList<Carta> cartas = new ArrayList(52);//array para armazenar as cartas
+    private ArrayList<Carta> cartas = new ArrayList<Carta>(52);//array para armazenar as cartas
     private final String[] valores = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};//valores presente do baralho
     private final String[] naipes = {"♣", "♥", "♠", "♦"};//naipes do baralho
     
