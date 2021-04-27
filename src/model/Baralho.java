@@ -2,8 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-import util.Embaralhar;
-
 
 public class Baralho {
 
@@ -37,12 +35,6 @@ public class Baralho {
                     cartas.add(new Carta(naipe, valor, i));//criação de nova carta
                     i = i + 1;
                 }
-            }
-
-            Embaralhar em = new Embaralhar(cartas);
-            cartas = em.embaralhar();
-            for(Carta carta: cartas){
-                System.out.println(carta);
             }
             quantidadeBaralho++;
         }    
