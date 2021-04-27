@@ -5,7 +5,7 @@ public class Carta {
     
     private String naipe, valor, cor;
     private int peso;
-    private boolean face;
+    private boolean visivel;
 
     /**
      * Construtor da classe
@@ -19,7 +19,7 @@ public class Carta {
         this.naipe = naipe;
         this.valor = valor;
         this.peso = peso;
-        this.face = false;
+        this.visivel = false;
         setCor();
     }
 
@@ -71,8 +71,8 @@ public class Carta {
      * @return se ela está virada ou não
      * 
      */
-    public boolean isFace() {
-        return face;
+    public boolean isVisivel() {
+        return visivel;
     }
 
     /**
@@ -80,8 +80,8 @@ public class Carta {
      * @param face
      * 
      */
-    public void setFace(boolean face) {
-        this.face = face;
+    public void setVisivel(boolean face) {
+        this.visivel = face;
     }
 
 
