@@ -1,10 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+
+import util.Embaralhar;
+
+
 public class Baralho {
 
-    private int quantidadeBaralhos;
-    private Carta[] cartas = new Carta[52];
-    private final String[] naipes = {"♣", "♥", "♠", "♦"};
+    private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
+    private ArrayList<Carta> cartas = new ArrayList(52);//array para armazenar as cartas
+    private final String[] valores = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};//valores presente do baralho
+    private final String[] naipes = {"♣", "♥", "♠", "♦"};//naipes do baralho
     
     /**
      * Construtor da classe
@@ -18,28 +24,26 @@ public class Baralho {
     }
 
 
+    /**
+     * Função para criação do baralho
+     * 
+     */
     private void criarBaralho(){
-        int quantidadeBaralho = 0;
+        int quantidadeBaralho = 0;//quantidade de baralhos presente no jogo
         while(quantidadeBaralho < this.quantidadeBaralhos){
-            for(String naipe: naipes){
-                for(int i = 0; i == 1; i++){
-                    cartas[i] = new Carta(naipe, "AS", 1);
-                    cartas[i+1] = new Carta(naipe, "2", 2);
-                    cartas[i+2] = new Carta(naipe, "3", 3);
-                    cartas[i+3] = new Carta(naipe, "4", 4);
-                    cartas[i+4] = new Carta(naipe, "5", 5);
-                    cartas[i+5] = new Carta(naipe, "6", 6);
-                    cartas[i+6] = new Carta(naipe, "7", 7);
-                    cartas[i+7] = new Carta(naipe, "8", 8);
-                    cartas[i+8] = new Carta(naipe, "9", 9);
-                    cartas[i+9] = new Carta(naipe, "10", 10);
-                    cartas[i+10] = new Carta(naipe, "J", 11);
-                    cartas[i+11] = new Carta(naipe, "Q", 12);
-                    cartas[i+12] = new Carta(naipe, "K", 13);
+            for(String naipe: naipes){//naipes do baralho
+                int i = 0;
+                for(String valor: valores){//valores presente do baralho
+                    cartas.add(new Carta(naipe, valor, i));//criação de nova carta
+                    i = i + 1;
                 }
             }
-            for(int j = 0; j < cartas.length; j++)
-                System.out.println(cartas[j]);
+
+            Embaralhar em = new Embaralhar(cartas);
+            cartas = em.embaralhar();
+            for(Carta carta: cartas){
+                System.out.println(carta);
+            }
             quantidadeBaralho++;
         }    
     }

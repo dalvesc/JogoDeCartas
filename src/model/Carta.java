@@ -1,5 +1,6 @@
 package model;
 
+
 public class Carta {
     
     private String naipe, valor, cor;
@@ -86,6 +87,6 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta [cor=" + cor + ", naipe=" + naipe + ", valor=" + valor + "]";
+        return "Carta [cor=" + cor + ", naipe=" + naipe + ", valor=" + valor + ", peso=" +peso+"]";
     }
 }
