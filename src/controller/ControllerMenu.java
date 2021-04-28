@@ -1,6 +1,7 @@
 package controller;
 
 import model.Baralho;
+import util.Embaralhar;
 
 
 /**
@@ -11,7 +12,9 @@ public class ControllerMenu {
     Baralho baralho;
 
     public ControllerMenu(int quantidadeBaralho) {
-        this.baralho = new Baralho(quantidadeBaralho);
+        new Baralho(quantidadeBaralho);
+        //falta embaralhar
+        this.baralho = Embaralhar.embaralhar(this.baralho);
     }
 
 }
