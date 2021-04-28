@@ -13,7 +13,7 @@ import model.PilhaFundacao;
  *
  * @author Adlla Katarine e Daniel Alves
  */
-public class ControllerPartida {
+public class ControllerPaciencia {
     
     private Baralho baralho;
     private PilhaEstoque estoque;

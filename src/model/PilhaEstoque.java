@@ -13,6 +13,7 @@ public class PilhaEstoque {
 
     public PilhaEstoque() {
         this.estoque = new ArrayList<>();
+        this.qtdCartasMovidas = 1;
     }
 
     public List<Carta> getEstoque() {
@@ -32,7 +33,7 @@ public class PilhaEstoque {
     }
     
     public void moverCarta(){
-        for(int i =0; i<qtdCartasMovimentadas; i++){
+        for(int i =0; i<qtdCartasMovidas; i++){
             if(!estoque.isEmpty()){
                 estoque.remove(estoque.size()-1);
             }
