@@ -14,7 +14,7 @@ public class ControllerMenu {
     public ControllerMenu(int quantidadeBaralho) {
         new Baralho(quantidadeBaralho);
         //falta embaralhar
-        this.baralho = Embaralhar.embaralhar(this.baralho);
+        //this.baralho = Embaralhar.embaralhar(this.baralho);
     }
 
 }

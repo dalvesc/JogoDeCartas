@@ -47,7 +47,7 @@ public class MenuPaciencia {
                     break;
 
                 case 4:
-                    //menuMoverCarta();
+                    menuMoverCarta();
                     break;
                 case 5:
                     //reiniciar jogo
@@ -58,15 +58,13 @@ public class MenuPaciencia {
                     break;
 
                 default:
-                System.out.println("Opção inválida! Digite novamente: ");
+                printOpcaoInvalida();
             }
         } while(continuarJogar);
     }
 
 
-  /**
-    
-    public static void menuMoverCarta(){
+    private void menuMoverCarta(){
         Scanner entrada = new Scanner(System.in);
         System.out.println("Escolha o próximo movimento da carta.");
         System.out.println("[1] - Mover a carta da pilha de estoque para a pilha de descarte.\n"
@@ -99,10 +97,9 @@ public class MenuPaciencia {
         } while(menuMoverCarta<1 || menuMoverCarta>5);
     }
     
-    public static void printOpcaoInvalida(){
+    private void printOpcaoInvalida(){
         System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
     }
-   */
     
     
 }
