@@ -1,12 +1,13 @@
 package model;
 
-
 /**
  *
  * @author Adlla Katarine e Daniel Alves
  */
 public class Carta {
-    
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";// transformar a cor da letra em vermelho
+    public static final String ANSI_WHITE = "\u001B[37m";// transformar a cor da letra em branca
     private String naipe, valor, cor;
     private int peso;
     private boolean visivel;
@@ -16,7 +17,7 @@ public class Carta {
      *
      * @param naipe naipe da carta
      * @param valor número da carta
-     * @param cor cor da carta
+     * @param cor   cor da carta
      * 
      */
     public Carta(String naipe, String valor, int peso) {
@@ -27,13 +28,13 @@ public class Carta {
         setCor();
     }
 
-
-    private void setCor(){
-        if(this.naipe.equals("♣") || this.naipe.equals("♠"))
+    private void setCor() {
+        if (this.naipe.equals("♣") || this.naipe.equals("♠"))
             this.cor = "PRETO";
         else
             this.cor = "VERMELHO";
     }
+
     /**
      *
      * @return naipe da carta
@@ -88,9 +89,13 @@ public class Carta {
         this.visivel = face;
     }
 
-
     @Override
     public String toString() {
-        return "Carta [cor=" + cor + ", naipe=" + naipe + ", valor=" + valor + ", peso=" +peso+"]";
+        if(this.cor.equals("VERMELHO"))
+            return ANSI_RED + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+        else
+         return ANSI_WHITE + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
     }
+
+    //compareTo cores e valor diferente
 }

@@ -2,42 +2,30 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Baralho;
-import model.Carta;
-import model.PilhaDescarte;
-import model.PilhaEstoque;
-import model.PilhaFileira;
-import model.PilhaFundacao;
+import model.*;
 
 /**
  *
  * @author Adlla Katarine e Daniel Alves
  */
-public class ControllerPaciencia {
-    
-    private Baralho baralho;
+public class ControllerPaciencia{
     private PilhaEstoque estoque;
     private PilhaDescarte descarte;
     private List<PilhaFundacao> fundacoes;
     private List<PilhaFileira> fileiras;
+    private List<Carta> baralho;
+    private ControllerMovimentos movimentos = new ControllerMovimentos();
     private String cartaOculta = "[▒▒▒▒]"; 
-    private static int quantidadeBaralhos = 1;  
-    /**
-     * 
-     */
-    public void iniciarBaralho(){
-        baralho = new Baralho(quantidadeBaralhos);
-    }
-    
-    public void embaralhar(){
-        //baralho.embaralhar();
-    }
-    
-    public void iniciarPilhas(){
+ 
+
+    public ControllerPaciencia(ArrayList<Carta> baralho){
+        this.baralho = baralho;
         this.estoque = new PilhaEstoque();
         this.descarte = new PilhaDescarte();
-        this.fundacoes = new ArrayList<>();
-        this.fileiras = new ArrayList<>();
+        this.fundacoes = new ArrayList<>(4);
+        this.fileiras = new ArrayList<>(7);
+        distribuirCartasFileiras();
+        addCartasEstoque();
     }
 
     /**
@@ -52,29 +40,59 @@ public class ControllerPaciencia {
             return true;
         } return false;
     }
+
+
+    public List<PilhaFileira> getFileiras(){
+        return fileiras;
+    }
+
+    public PilhaEstoque getEstoque(){
+        return estoque;
+    }
+
+    public List<PilhaFundacao> getFundacao(){
+        return fundacoes;
+    }
+
+    public PilhaDescarte getDescarte(){
+        return descarte;
+    }
+
+    public void ocultarCartas(){
+
+    }
+
+    public void informarPilhasVazias(){
+        
+    }
     
     /**
      * Método que distribui as cartas entre todas as fileiras.
      */
     public void distribuirCartasFileiras(){
         int qtdCartasDistribuidas = 1;
-        for(PilhaFileira fileira: fileiras){
-            
-            for(int i=0; i<qtdCartasDistribuidas; i++){
-                //fileira.addCarta(carta);
-                if(i==qtdCartasDistribuidas-1){
-                    //
+        for(int i=0; i<fileiras.size(); i++){
+            PilhaFileira fileira = new PilhaFileira();
+            for(int j=0; j<qtdCartasDistribuidas; j++){
+                if(j==qtdCartasDistribuidas-1){
+                    this.baralho.get(0).setVisivel(true);
                 }
+                fileira.addCarta(this.baralho.remove(0));
             }
-        } qtdCartasDistribuidas++;
-    }
-    
-    /**
-     * Método que 
-     */
-    public void distribuirCartasEstoque(){
-        
+            this.fileiras.add(fileira);
+            qtdCartasDistribuidas++;
+        }
     }
 
     
+    /**
+     * Método que adiciona as cartas restantes no baralho ao estoque.
+     */
+    public void addCartasEstoque(){
+        estoque.addEstoque(this.baralho);
+        this.baralho.clear();
+    }
+
+    public void movimentarCartas(){
+    }
 }

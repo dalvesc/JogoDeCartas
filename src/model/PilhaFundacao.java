@@ -18,15 +18,27 @@ public class PilhaFundacao {
         return fundacao;
     }
     
-    public void addCarta(Carta carta){
-        this.fundacao.add(carta);
+    /**
+     * 
+     * @param carta
+     * @return
+     */
+    public boolean addCarta(Carta carta){
+        if(verificarOrdem()){
+            return this.fundacao.add(carta);
+        } return false;
     }
     
     public void moverCartaFileira(){
         
     }
     
-    public void verificarOrdem(){
-        
+    public boolean verificarOrdem(){
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return fundacao.toString();
     }
 }

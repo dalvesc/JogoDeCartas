@@ -34,4 +34,9 @@ public class PilhaDescarte {
     public void moverCartaFileira(){
         
     }
+
+    @Override
+    public String toString() {
+        return descarte.toString();
+    }
 }

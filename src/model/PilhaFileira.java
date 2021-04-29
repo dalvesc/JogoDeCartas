@@ -35,5 +35,8 @@ public class PilhaFileira {
         
     }
     
-    
+    @Override
+    public String toString() {
+        return fileira.toString();
+    }
 }

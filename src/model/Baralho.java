@@ -43,5 +43,10 @@ public class Baralho {
             quantidadeBaralho++;
         }    
     }
+
+
+    public ArrayList<Carta> getBaralho(){
+        return this.cartas;
+    }
 }
     

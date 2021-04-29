@@ -1,7 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
 import model.Baralho;
+import model.Carta;
 import util.Embaralhar;
+
 
 
 /**
@@ -9,12 +12,16 @@ import util.Embaralhar;
  * @author Adlla Katarine e Daniel Alves
  */
 public class ControllerMenu {
-    Baralho baralho;
+    ArrayList<Carta> baralho;
 
     public ControllerMenu(int quantidadeBaralho) {
-        new Baralho(quantidadeBaralho);
-        //falta embaralhar
-        //this.baralho = Embaralhar.embaralhar(this.baralho);
+        Baralho br = new Baralho(quantidadeBaralho);
+        this.baralho = br.getBaralho();
+        this.baralho = Embaralhar.embaralhar(this.baralho);
     }
 
+    
+    public ArrayList<Carta> getBaralhoEmbaralhado(){
+        return this.baralho;
+    }
 }

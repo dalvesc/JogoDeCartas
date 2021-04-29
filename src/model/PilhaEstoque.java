@@ -28,9 +28,9 @@ public class PilhaEstoque {
         this.estoque = estoque;
     }
     
-    public void addCarta(Carta carta){
+    /**public void addCarta(Carta carta){
         this.estoque.add(carta);
-    }
+    }*/
     
     public void moverCarta(){
         for(int i =0; i<qtdCartasMovidas; i++){
@@ -38,5 +38,10 @@ public class PilhaEstoque {
                 estoque.remove(estoque.size()-1);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return estoque.toString();
     }
 }
