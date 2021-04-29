@@ -65,31 +65,37 @@ public class MenuPaciencia {
 
 
     private void menuMoverCarta(){
-        Scanner entrada = new Scanner(System.in);
         System.out.println("Escolha o próximo movimento da carta.");
         System.out.println("[1] - Mover a carta da pilha de estoque para a pilha de descarte.\n"
                 + "[2] - Mover a carta da pilha de descarte para uma das pilhas de fileiras.\n"
                 + "[3] - Mover a carta da pilha de fileiras para uma das pilhas de fundação.\n"
                 + "[4] - Mover a carta da pilha de fundação para uma das pilhas de fileiras.\n"
-                + "[5] - Mover a carta da pilha de descarte para uma das pilhas de fundação.");
-        int menuMoverCarta = entrada.nextInt();
+                + "[5] - Mover a carta da pilha de fileiras para outra pilha de fileiras.\n"
+                + "[6] - Mover a carta da pilha de descarte para uma das pilhas de fundação.");
+        int menuMoverCarta = scan.nextInt();
+
+        //método exibir jogo
         
         do{
             switch (menuMoverCarta) {
                 case 1:
-                    
+                    //método pilha de estoque para descarte
                     break;
                 case 2:
-                    
+                    System.out.print("Digite em qual das fileiras gostaria de mover a carta: ");
+                    //método pilha de descarte para fileiras
                     break;
                 case 3:
-                    
+                    System.out.print("Digite em qual das fundações gostaria de mover a carta: ");
+                    //método pilha de fileiras para fundação
                     break;
                 case 4:
-                    
+                    System.out.print("Digite em qual das fileiras gostaria de mover a carta: ");
+                    //método pilha de fundação para fileiras
                     break;
                 case 5:
-                    
+                    System.out.print("Digite em qual das fileiras gostaria de mover a carta: ");
+                    //método pilha de fundação para fileiras
                     break;
                 default:
                     printOpcaoInvalida();
