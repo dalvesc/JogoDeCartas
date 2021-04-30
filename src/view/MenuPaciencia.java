@@ -48,7 +48,6 @@ public class MenuPaciencia {
                     if(controllerPaciencia.qtdVirarCartasEstoque(quantidadeCartasEstoque)){
                         controllerPaciencia.mostrarCartas(controllerPaciencia.getEstoque().getCartasEstoque(), quantidadeCartasEstoque); 
                     }
-                    //virar carta estoque
                     break;
 
                 case 2:
@@ -151,10 +150,6 @@ public class MenuPaciencia {
         } while(continuarJogar);
     }
     
-    private void printOpcaoInvalida(){
-        System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
-    }
-    
     private void exibirDadosJogo(){ 
         System.out.print("\n1 - ESTOQUE: ");
         imprimirCartas(controllerPaciencia.getEstoque().getCartasEstoque());//mostra o estoque do jogo
@@ -190,5 +185,9 @@ public class MenuPaciencia {
         while(it.hasNext()){
             System.out.print(it.next());
         }
+    }
+
+    private void printOpcaoInvalida(){
+        System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
     }
 }
