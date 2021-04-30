@@ -15,7 +15,6 @@ public class ControllerPaciencia{
     private List<PilhaFileira> fileiras;
     private List<Carta> baralho;
     private ControllerMovimentos movimentos = new ControllerMovimentos();
-    private String cartaOculta = "[▒▒▒▒]"; 
  
 
     public ControllerPaciencia(ArrayList<Carta> baralho){
@@ -43,17 +42,17 @@ public class ControllerPaciencia{
 
 
     public List<PilhaFileira> getFileiras(){
-        return fileiras;
+        return this.fileiras;
     }
 
     public PilhaEstoque getEstoque(){
-        return estoque;
+        return this.estoque;
     }
 
     public List<PilhaFundacao> getFundacao(){
-        return fundacoes;
+        return this.fundacoes;
     }
-
+/*
     public PilhaDescarte getDescarte(){
         return descarte;
     }
@@ -65,15 +64,20 @@ public class ControllerPaciencia{
     public void informarPilhasVazias(){
         
     }
+
     
+    public void movimentarCartas(){
+    }
+  */  
     /**
      * Método que distribui as cartas entre todas as fileiras.
      */
     public void distribuirCartasFileiras(){
         int qtdCartasDistribuidas = 1;
-        for(int i=0; i<fileiras.size(); i++){
+        for(int i=0; i<7; i++){
             PilhaFileira fileira = new PilhaFileira();
             for(int j=0; j<qtdCartasDistribuidas; j++){
+
                 if(j==qtdCartasDistribuidas-1){
                     this.baralho.get(0).setVisivel(true);
                 }
@@ -89,10 +93,8 @@ public class ControllerPaciencia{
      * Método que adiciona as cartas restantes no baralho ao estoque.
      */
     public void addCartasEstoque(){
-        estoque.addEstoque(this.baralho);
+        this.estoque.addEstoque(this.baralho);
         this.baralho.clear();
     }
 
-    public void movimentarCartas(){
-    }
 }

@@ -28,17 +28,19 @@ public class PilhaFundacao {
             return this.fundacao.add(carta);
         } return false;
     }
-    
-    public void moverCartaFileira(){
-        
-    }
+ 
     
     public boolean verificarOrdem(){
         return false;
     }
+/*
 
+   
+    public void moverCartaFileira(){
+        
+    }
     @Override
     public String toString() {
         return fundacao.toString();
-    }
+    }*/
 }

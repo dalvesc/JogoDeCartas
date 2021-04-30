@@ -25,7 +25,7 @@ public class PilhaEstoque {
     }
 
     public void addEstoque(List<Carta> estoque) {
-        this.estoque = estoque;
+        this.estoque.addAll(estoque);
     }
     
     /**public void addCarta(Carta carta){

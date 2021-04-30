@@ -8,6 +8,7 @@ public class Carta {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";// transformar a cor da letra em vermelho
     public static final String ANSI_WHITE = "\u001B[37m";// transformar a cor da letra em branca
+    private String cartaOculta = "[▒▒▒▒]";//modo de exibição quando a carta está virada
     private String naipe, valor, cor;
     private int peso;
     private boolean visivel;
@@ -91,10 +92,14 @@ public class Carta {
 
     @Override
     public String toString() {
-        if(this.cor.equals("VERMELHO"))
-            return ANSI_RED + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
-        else
-         return ANSI_WHITE + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+        if(this.isVisivel()){
+            if(this.cor.equals("VERMELHO"))
+                return ANSI_RED + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+            else
+                return ANSI_WHITE + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+        }else{
+            return cartaOculta;
+        }
     }
 
     //compareTo cores e valor diferente

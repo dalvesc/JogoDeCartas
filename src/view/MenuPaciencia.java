@@ -14,19 +14,19 @@ import controller.ControllerPaciencia;
  */
 public class MenuPaciencia {
     Scanner scan = new Scanner(System.in);
+    ControllerPaciencia controllerPaciencia;//variável para o controller do jogo paciência
 
     public MenuPaciencia(int quantidadeBaralho) {
         ControllerMenu controllerMenu = new ControllerMenu(quantidadeBaralho);
-        ControllerPaciencia controllerPaciencia = new ControllerPaciencia(controllerMenu.getBaralhoEmbaralhado());
-        exibirOpcoesPaciencia(controllerPaciencia);
-
+        controllerPaciencia = new ControllerPaciencia(controllerMenu.getBaralhoEmbaralhado());
+        exibirOpcoesPaciencia();
     }
     
-    private void exibirOpcoesPaciencia(ControllerPaciencia controllerPaciencia){
+    private void exibirOpcoesPaciencia(){
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou retornar
         int opcao;//opção escolhida pelo usuário
 
-        exibirDadosJogo(controllerPaciencia);
+        exibirDadosJogo();
         System.out.println("Escolha a próxima jogada.");
         System.out.println("[1] - Virar carta do estoque.\n"
                 + "[2] - Virar carta da pilha de fileira.\n"
@@ -145,58 +145,32 @@ public class MenuPaciencia {
         System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
     }
     
-    private void exibirDadosJogo(ControllerPaciencia controllerPaciencia){ 
-        System.out.print("1 - ESTOQUE: ");
-        //controllerPaciencia.getEstoque();
-        System.out.print(controllerPaciencia.getEstoque());
-        //imprime cartas estoque
-        System.out.print("2 - DESCARTE: ");
-        //controllerPaciencia.getDescarte();
-        System.out.println(controllerPaciencia.getDescarte());
-        //cartas no descarte
-        System.out.print("3 - FUNDAÇÃO 1: ");
-        //controllerPaciencia.getFundacao();
-        System.out.println(controllerPaciencia.getFundacao());
-        //cartas na fundação
-        System.out.print("4 - FUNDAÇÃO 2: ");
-        //controllerPaciencia.getFundacao();
-        System.out.println(controllerPaciencia.getFundacao());
-        //cartas na fundação
-        System.out.print("5 - FUNDAÇÃO 3: ");
-        //controllerPaciencia.getFundacao();
-        System.out.println(controllerPaciencia.getFundacao());
-        //cartas na fundação
-        System.out.print("6 - FUNDAÇÃO 4: ");
-        //controllerPaciencia.getFundacao();
-        System.out.println(controllerPaciencia.getFundacao());
-        //cartas na fundação
-        System.out.print("7 - FILEIRA 1: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("8 - FILEIRA 2: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("9 - FILEIRA 3: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("10 - FILEIRA 4: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("11 - FILEIRA 5: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("12 - FILEIRA 6: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
-        System.out.print("13 - FILEIRA 7: ");
-        //controllerPaciencia.getFileiras();
-        System.out.println(controllerPaciencia.getFileiras());
-        //cartas da fileira
+    private void exibirDadosJogo(){ 
+        System.out.print("\n1 - ESTOQUE: ");
+        System.out.print(controllerPaciencia.getEstoque());//mostra o estoque do jogo
+        System.out.print("\n2 - DESCARTE: ");
+        //System.out.println(controllerPaciencia.getDescarte());//cartas descartadas
+        System.out.print("\n3 - FUNDAÇÃO 1: ");
+        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 1
+        System.out.print("\n4 - FUNDAÇÃO 2: ");
+        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 2
+        System.out.print("\n5 - FUNDAÇÃO 3: ");
+        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 3
+        System.out.print("\n6 - FUNDAÇÃO 4: ");
+        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 4
+        System.out.print("\n7 - FILEIRA 1: ");
+        System.out.println(controllerPaciencia.getFileiras().get(0));//cartas fileira 1
+        System.out.print("\n8 - FILEIRA 2: ");
+        System.out.println(controllerPaciencia.getFileiras().get(1));//cartas fileira 2
+        System.out.print("\n9 - FILEIRA 3: ");
+        System.out.println(controllerPaciencia.getFileiras().get(2));//cartas fileira 3
+        System.out.print("\n10 - FILEIRA 4: ");
+        System.out.println(controllerPaciencia.getFileiras().get(3));//cartas fileira 4
+        System.out.print("\n11 - FILEIRA 5: ");
+        System.out.println(controllerPaciencia.getFileiras().get(4));//cartas fileira 5
+        System.out.print("\n12 - FILEIRA 6: ");
+        System.out.println(controllerPaciencia.getFileiras().get(5));//cartas fileira 6
+        System.out.print("\n13 - FILEIRA 7: ");
+        System.out.println(controllerPaciencia.getFileiras().get(6));//cartas fileira 7
     }
 }
