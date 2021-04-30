@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
+import util.MostrarCarta;
 
 /**
  *
@@ -29,17 +30,17 @@ public class ControllerPaciencia{
 
     /**
      * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
-     * 
+     *  //gerar exception
      * @param quantidade
      * @return boolean 
      */
     public boolean qtdVirarCartasEstoque(int quantidade){
         if(quantidade==1 || quantidade==3){
-            this.estoque.setQtdCartasMovidas(quantidade);
-            return true;
-        } return false;
+            if(this.estoque.setQtdCartasMovidas(quantidade))
+                return true;
+        } 
+        return false;
     }
-
 
     public List<PilhaFileira> getFileiras(){
         return this.fileiras;
@@ -97,4 +98,8 @@ public class ControllerPaciencia{
         this.baralho.clear();
     }
 
+
+    public void mostrarCartas(List<Carta> cartas, int quantidadeParaMostrar){
+        MostrarCarta.mostrar(cartas, quantidadeParaMostrar);
+    }
 }

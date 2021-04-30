@@ -2,10 +2,6 @@ package controller;
 
 public class ControllerMovimentos {
 
-
-    public ControllerMovimentos(){
-        
-    }
     /**
      * Método que move carta da pilha de estoque para a pilha de descarte.
      */

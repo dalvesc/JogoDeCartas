@@ -94,9 +94,9 @@ public class Carta {
     public String toString() {
         if(this.isVisivel()){
             if(this.cor.equals("VERMELHO"))
-                return ANSI_RED + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+                return ANSI_RED + " [" + naipe +"  "+ valor +"  "+ naipe + "] " + ANSI_RESET;
             else
-                return ANSI_WHITE + '[' + naipe +"  "+ valor +"  "+ naipe + ']' + ANSI_RESET;
+                return ANSI_WHITE + " [" + naipe +"  "+ valor +"  "+ naipe + "] " + ANSI_RESET;
         }else{
             return cartaOculta;
         }

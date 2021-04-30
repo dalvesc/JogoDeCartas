@@ -15,7 +15,7 @@ public class PilhaFileira {
         this.fileira = new ArrayList<>();
     }
 
-    public List<Carta> getFileira() {
+    public List<Carta> getCartasFileira() {
         return fileira;
     }
     

@@ -16,12 +16,16 @@ public class PilhaEstoque {
         this.qtdCartasMovidas = 1;
     }
 
-    public List<Carta> getEstoque() {
+    public List<Carta> getCartasEstoque() {
         return estoque;
     }
 
-    public void setQtdCartasMovidas(int qtdCartasMovidas){
+    public boolean setQtdCartasMovidas(int qtdCartasMovidas){
+        if(qtdCartasMovidas <= estoque.size()){
         this.qtdCartasMovidas = qtdCartasMovidas;
+        return true;
+        }
+        return false;
     }
 
     public void addEstoque(List<Carta> estoque) {
