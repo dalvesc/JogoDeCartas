@@ -15,7 +15,7 @@ public class PilhaDescarte {
         this.descarte = new ArrayList<>();
     }
 
-    public List<Carta> getDescarte() {
+    public List<Carta> getCartasDescarte() {
         return descarte;
     }
     

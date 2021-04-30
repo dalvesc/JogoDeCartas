@@ -4,6 +4,10 @@ import java.util.List;
 import model.Carta;
 
 
+/**
+ *
+ * @author Adlla Katarine e Daniel Alves
+ */
 public class MostrarCarta {
 
     private MostrarCarta(){}

@@ -2,6 +2,11 @@ package util;
 
 import model.Carta;
 
+
+/**
+ *
+ * @author Adlla Katarine e Daniel Alves
+ */
 public class ComparacaoCartas {
     Carta carta1, carta2;
 

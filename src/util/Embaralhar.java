@@ -5,6 +5,10 @@ import java.util.Collections;
 import model.Carta;
 
 
+/**
+ *
+ * @author Adlla Katarine e Daniel Alves
+ */
 public class Embaralhar {
     
     private Embaralhar() {

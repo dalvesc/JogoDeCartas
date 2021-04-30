@@ -17,11 +17,11 @@ public class MenuPaciencia {
     Scanner scan = new Scanner(System.in);
     ControllerPaciencia controllerPaciencia;//variável para o controller do jogo paciência
     ControllerMovimentos controllerMovimentos;
+    int quantidadeCartasEstoque;//quantidade de cartas do estoque que o usuário quer ver/mover
 
     public MenuPaciencia(int quantidadeBaralho) {
         ControllerMenu controllerMenu = new ControllerMenu(quantidadeBaralho);
         controllerPaciencia = new ControllerPaciencia(controllerMenu.getBaralhoEmbaralhado());
-        controllerMovimentos = new ControllerMovimentos();
         exibirOpcoesPaciencia();
     }
     
@@ -44,7 +44,7 @@ public class MenuPaciencia {
             switch (opcao) {
                 case 1:
                     System.out.println("Quantas cartas deseja virar?(1 ou 3)");
-                    int quantidadeCartasEstoque = scan.nextInt();
+                    this.quantidadeCartasEstoque = scan.nextInt();
                     if(controllerPaciencia.qtdVirarCartasEstoque(quantidadeCartasEstoque)){
                         controllerPaciencia.mostrarCartas(controllerPaciencia.getEstoque().getCartasEstoque(), quantidadeCartasEstoque); 
                     }
@@ -82,23 +82,24 @@ public class MenuPaciencia {
     private void menuMoverCarta(){
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou retornar
         int opcao;
-
-        System.out.println("\nEscolha o próximo movimento da carta.");
-        System.out.println("[1] - Mover a carta da pilha de estoque para a pilha de descarte.\n"
-                + "[2] - Mover a carta da pilha de descarte para uma das pilhas de fileiras.\n"
-                + "[3] - Mover a carta da pilha de descarte para uma das pilhas de fundação.\n"
-                + "[4] - Mover a carta da pilha de fileiras para uma das pilhas de fundação.\n"
-                + "[5] - Mover a carta da pilha de fundação para uma das pilhas de fileiras.\n"
-                + "[6] - Mover a carta da pilha de fileiras para outra pilha de fileiras.\n"
-                + "[7] - Mover a pilha de descarte para a pilha de estoque, caso esteja vazia.\n"
-                + "[0] - Retornar ao menu anterior.\n");
         
-        opcao = scan.nextInt();
-        //método exibir jogo
         do{
+            exibirDadosJogo();
+            System.out.println("\nEscolha o próximo movimento da carta.");
+            System.out.println("[1] - Mover a carta da pilha de estoque para a pilha de descarte.\n"
+                    + "[2] - Mover a carta da pilha de descarte para uma das pilhas de fileiras.\n"
+                    + "[3] - Mover a carta da pilha de descarte para uma das pilhas de fundação.\n"
+                    + "[4] - Mover a carta da pilha de fileiras para uma das pilhas de fundação.\n"
+                    + "[5] - Mover a carta da pilha de fundação para uma das pilhas de fileiras.\n"
+                    + "[6] - Mover a carta da pilha de fileiras para outra pilha de fileiras.\n"
+                    + "[7] - Mover a pilha de descarte para a pilha de estoque, caso esteja vazia.\n"
+                    + "[0] - Retornar ao menu anterior.\n");
+            
+            opcao = scan.nextInt();
             switch (opcao) {
                 case 1:
-                    //método pilha de estoque para descarte
+                //verificação saber se tem carta virada do estoque
+                    ControllerMovimentos.moverEstoqueParaDescarte(controllerPaciencia.getEstoque().getCartasEstoque(), controllerPaciencia.getDescarte().getCartasDescarte(), this.quantidadeCartasEstoque);
                     break;
 
                 case 2:
@@ -158,7 +159,7 @@ public class MenuPaciencia {
         System.out.print("\n1 - ESTOQUE: ");
         imprimirCartas(controllerPaciencia.getEstoque().getCartasEstoque());//mostra o estoque do jogo
         System.out.print("\n2 - DESCARTE: ");
-        //System.out.println(controllerPaciencia.getDescarte());//cartas descartadas
+        imprimirCartas(controllerPaciencia.getDescarte().getCartasDescarte());//cartas descartadas
         System.out.print("\n3 - FUNDAÇÃO 1: ");
         //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 1
         System.out.print("\n4 - FUNDAÇÃO 2: ");

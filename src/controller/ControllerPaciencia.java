@@ -15,7 +15,6 @@ public class ControllerPaciencia{
     private List<PilhaFundacao> fundacoes;
     private List<PilhaFileira> fileiras;
     private List<Carta> baralho;
-    private ControllerMovimentos movimentos = new ControllerMovimentos();
  
 
     public ControllerPaciencia(ArrayList<Carta> baralho){
@@ -53,11 +52,11 @@ public class ControllerPaciencia{
     public List<PilhaFundacao> getFundacao(){
         return this.fundacoes;
     }
-/*
+
     public PilhaDescarte getDescarte(){
         return descarte;
     }
-
+/*
     public void ocultarCartas(){
 
     }
