@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author Adlla Katarine e Daniel Alves
@@ -14,7 +15,7 @@ public class PilhaFundacao {
         this.fundacao = new ArrayList<>();
     }
 
-    public List<Carta> getFundacao() {
+    public List<Carta> getCartasFundacao() {
         return fundacao;
     }
     

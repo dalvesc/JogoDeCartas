@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author Adlla Katarine e Daniel Alves
@@ -20,6 +21,7 @@ public class PilhaEstoque {
         return estoque;
     }
 
+    //falta comentar
     public boolean setQtdCartasMovidas(int qtdCartasMovidas){
         if(qtdCartasMovidas <= estoque.size()){
         this.qtdCartasMovidas = qtdCartasMovidas;

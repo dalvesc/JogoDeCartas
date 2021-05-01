@@ -23,6 +23,7 @@ public class PilhaDescarte {
         this.descarte.add(carta);
     }
     
+    //falta comentar
     public void moverPilhaEstoque(){
         
     }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * 
- *Menu com as opções pra iniciar o jogo
+ * Menu com as opções pra iniciar o jogo
  * 
  * @author Adlla Katarine e Daniel Alves
  */

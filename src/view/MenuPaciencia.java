@@ -9,7 +9,7 @@ import model.Carta;
 
 /**
  * 
- *Menu com as opções pro jogo de Paciência
+ * Menu com as opções pro jogo de Paciência
  * 
  * @author Adlla Katarine e Daniel Alves
  */
@@ -81,6 +81,11 @@ public class MenuPaciencia {
     }
 
 
+    /**
+     * 
+     * Função com opções para movimentação das cartas
+     * 
+     */
     private void menuMoverCarta(){
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou retornar
         int opcao;
@@ -180,6 +185,10 @@ public class MenuPaciencia {
         } while(continuarJogar);
     }
     
+    /**
+     * 
+     * Função para exibir os dados(montes) do jogo
+     */
     private void exibirDadosJogo(){ 
         System.out.print("\n1 - ESTOQUE: ");
         imprimirCartas(controllerPaciencia.getEstoque().getCartasEstoque());//mostra o estoque do jogo
@@ -189,17 +198,27 @@ public class MenuPaciencia {
         imprimirFileiras();
     }
 
+    /**
+     * 
+     * Função para imprimir as fundações do jogo
+     * 
+     */
     private void imprimirFundacoes(){
         System.out.print("\n3 - FUNDAÇÃO 1: ");
-        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 1
+        imprimirCartas(controllerPaciencia.getFundacao().get(0).getCartasFundacao());
         System.out.print("\n4 - FUNDAÇÃO 2: ");
-        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 2
+        imprimirCartas(controllerPaciencia.getFundacao().get(1).getCartasFundacao());
         System.out.print("\n5 - FUNDAÇÃO 3: ");
-        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 3
+        imprimirCartas(controllerPaciencia.getFundacao().get(2).getCartasFundacao());
         System.out.print("\n6 - FUNDAÇÃO 4: ");
-        //System.out.println(controllerPaciencia.getFundacao());//cartas da fundação 4
+        imprimirCartas(controllerPaciencia.getFundacao().get(3).getCartasFundacao());
     }
 
+    /**
+     * 
+     * Função para imprimir as fileiras do jogo
+     * 
+     */
     private void imprimirFileiras(){
         System.out.print("\n7 - FILEIRA 1: ");
         imprimirCartas(controllerPaciencia.getFileiras().get(0).getCartasFileira());//cartas fileira 1
@@ -217,6 +236,12 @@ public class MenuPaciencia {
         imprimirCartas(controllerPaciencia.getFileiras().get(6).getCartasFileira());//cartas fileira 7
     }
 
+    /**
+     * 
+     * Função para imprimir cartas da lista
+     * 
+     * @param cartas lista de cartas que serão exibidas
+     */
     private void imprimirCartas(List<Carta> cartas){
         Iterator<Carta> it = cartas.iterator();
         
@@ -225,6 +250,10 @@ public class MenuPaciencia {
         }
     }
 
+    /**
+     * 
+     * Função para informar que digitou uma opção invalida //transformar em exception
+     */
     private void printOpcaoInvalida(){
         System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
     }

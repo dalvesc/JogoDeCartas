@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-
 import model.Carta;
 import util.MoverCartas;
 
@@ -14,6 +13,7 @@ import util.MoverCartas;
  */
 public class ControllerMovimentos {
 
+    //falta fazer as verificações para saber se pode mover a carta pra pilha
     private ControllerMovimentos(){}
     /**
      * Método que move carta da pilha de estoque para a pilha de descarte.
@@ -87,6 +87,4 @@ public class ControllerMovimentos {
     public static void moverCartaFileiraParaFundacao(List<Carta> fileira, List<Carta> fundacao){
         MoverCartas.move(fileira, fundacao, 1);
     }
-
-
 }

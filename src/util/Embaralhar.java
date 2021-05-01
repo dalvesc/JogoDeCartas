@@ -6,7 +6,8 @@ import model.Carta;
 
 
 /**
- *
+ * Classe para embaralhar baralho
+ * falta comentar
  * @author Adlla Katarine e Daniel Alves
  */
 public class Embaralhar {
