@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import controller.*;
+import facade.Facade;
 import model.Carta;
 
 
@@ -15,14 +16,12 @@ import model.Carta;
  */
 public class MenuPaciencia {
     Scanner scan = new Scanner(System.in);
-    ControllerPaciencia controllerPaciencia;//variável para o controller do jogo paciência
-    ControllerMovimentos controllerMovimentos;
+    Facade facade;
     int quantidadeCartasEstoque;//quantidade de cartas do estoque que o usuário quer ver/mover
     String separador = "\n-------------------------------------------------------------------------------------------------------------------------";
     
     public MenuPaciencia(int quantidadeBaralho) {
-        ControllerMenu controllerMenu = new ControllerMenu(quantidadeBaralho);
-        controllerPaciencia = new ControllerPaciencia(controllerMenu.getBaralhoEmbaralhado());
+        facade = new Facade(quantidadeBaralho);
         exibirOpcoesPaciencia();
     }
     
@@ -36,7 +35,7 @@ public class MenuPaciencia {
             System.out.println(separador);
 
             System.out.println("\nEscolha a próxima jogada.");
-            System.out.println("[1] - Virar carta do estoque.\n"
+            System.out.println("[1] - Virar carta do estoque para descarte.\n"
                 + "[2] - Virar carta da pilha de fileira.\n"
                 + "[3] - Pedir dados da carta.\n"
                 + "[4] - Mover cartas.\n"
@@ -48,14 +47,16 @@ public class MenuPaciencia {
                 case 1:
                     System.out.println("Quantas cartas deseja virar?(1 ou 3)");
                     this.quantidadeCartasEstoque = scan.nextInt();
-                    if(controllerPaciencia.qtdVirarCartasEstoque(quantidadeCartasEstoque)){
-                        controllerPaciencia.mostrarCartas(controllerPaciencia.getEstoque().getCartasEstoque(), quantidadeCartasEstoque); 
+                    if(facade.qtdVirarCartasEstoque(quantidadeCartasEstoque)){
+                        facade.mostrarCartas(facade.getEstoque().getCartasEstoque(), quantidadeCartasEstoque); 
+                        ControllerMovimentos.moverEstoqueParaDescarte(facade.getEstoque().getCartasEstoque(), facade.getDescarte().getCartasDescarte(), this.quantidadeCartasEstoque);
                     }
                     break;
 
                 case 2:
                     System.out.print("Digite de qual fileira gostaria de virar a carta: \n");
-                    //virar carta fileira
+                    int virarCarta = scan.nextInt();
+                    facade.mostrarCartas(facade.getFileiras().get(virarCarta-1).getCartasFileira(), 1); 
                     break;
 
                 case 3:
@@ -89,6 +90,7 @@ public class MenuPaciencia {
     private void menuMoverCarta(){
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou retornar
         int opcao;
+        int[] escolherPilha = new int[2];
         
         do{
             System.out.println(separador);
@@ -96,80 +98,95 @@ public class MenuPaciencia {
             System.out.println(separador);
 
             System.out.println("\nEscolha o próximo movimento da carta.");
-            System.out.println("[1] - Mover a carta da pilha de estoque para a pilha de descarte.\n"
-                    + "[2] - Mover a carta da pilha de descarte para uma das pilhas de fileiras.\n"
-                    + "[3] - Mover a carta da pilha de descarte para uma das pilhas de fundação.\n"
-                    + "[4] - Mover a carta da pilha de fileiras para uma das pilhas de fundação.\n"
-                    + "[5] - Mover a carta da pilha de fundação para uma das pilhas de fileiras.\n"
-                    + "[6] - Mover a carta da pilha de fileiras para outra pilha de fileiras.\n"
-                    + "[7] - Mover a pilha de descarte para a pilha de estoque, caso esteja vazia.\n"
+            System.out.println("[1] - Mover a carta da pilha de descarte para uma das pilhas de fileiras.\n"
+                    + "[2] - Mover a carta da pilha de descarte para uma das pilhas de fundação.\n"
+                    + "[3] - Mover a carta da pilha de fileiras para uma das pilhas de fundação.\n"
+                    + "[4] - Mover a carta da pilha de fundação para uma das pilhas de fileiras.\n"
+                    + "[5] - Mover a carta da pilha de fileiras para outra pilha de fileiras.\n"
+                    + "[6] - Mover a pilha de descarte para a pilha de estoque, caso esteja vazia.\n"
                     + "[0] - Retornar ao menu anterior.\n");
             
             opcao = scan.nextInt();
             switch (opcao) {
                 case 1:
-                //verificação saber se tem carta virada do estoque
-                    ControllerMovimentos.moverEstoqueParaDescarte(controllerPaciencia.getEstoque().getCartasEstoque(), controllerPaciencia.getDescarte().getCartasDescarte(), this.quantidadeCartasEstoque);
+                    System.out.println(separador);
+                    imprimirFileiras(1);
+                    System.out.println(separador);
+                    System.out.println("\n\nDigite para qual fileira gostaria de mover a carta: ");
+                    escolherPilha[0] = scan.nextInt();
+
+                    //método pilha de descarte para fileiras
+                    facade.moverCartaDescarteParaFileira(facade.getDescarte().getCartasDescarte(), facade.getFileiras().get(escolherPilha[0]-1).getCartasFileira());
                     continuarJogar = false;
                     break;
 
                 case 2:
-                    System.out.println(separador);
-                    imprimirFileiras();
-                    System.out.println(separador);
-                    System.out.println("\n\nDigite para qual fileira gostaria de mover a carta: ");
-                    //método pilha de descarte para fileiras
+                    System.out.println("\n\nDigite para qual fundação gostaria de mover a carta: ");
+                    escolherPilha[0] = scan.nextInt();
+
+                    //método pilha de descarte para fundações
+                    facade.moverCartaDescarteParaFundacao(facade.getDescarte().getCartasDescarte(), facade.getFundacao().get(escolherPilha[0]-1).getCartasFundacao());
                     continuarJogar = false;
                     break;
 
                 case 3:
-                    System.out.println("\n\nDigite para qual fundação gostaria de mover a carta: ");
-                    //método pilha de descarte para fundações
+                    System.out.println(separador);
+                    imprimirFileiras(1);
+                    System.out.println(separador);
+                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
+                    escolherPilha[0] = scan.nextInt();
+
+                    System.out.println(separador);
+                    imprimirFundacoes(1);
+                    System.out.println(separador);
+                    System.out.print("\nDigite para qual fundação gostaria de mover a carta: ");
+                    escolherPilha[1] = scan.nextInt();
+
+                    //método pilha de fileiras para fundações
+                    facade.moverCartaFileiraParaFundacao(facade.getFileiras().get(escolherPilha[0]-1).getCartasFileira(), facade.getFundacao().get(escolherPilha[1]-1).getCartasFundacao());
                     continuarJogar = false;
                     break;
 
                 case 4:
                     System.out.println(separador);
-                    imprimirFileiras();
+                    imprimirFundacoes(1);
                     System.out.println(separador);
-                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
+                    System.out.print("\nDigite de qual fundação gostaria de mover a carta: ");
+                    escolherPilha[0] = scan.nextInt();
+                    
+                    System.out.println(separador);
+                    imprimirFileiras(1);
+                    System.out.println(separador);
+                    System.out.print("\nDigite para qual fileira gostaria de mover a carta: ");
+                    escolherPilha[1] = scan.nextInt();
 
-                    System.out.println(separador);
-                    imprimirFundacoes();
-                    System.out.println(separador);
-                    System.out.print("\nDigite para qual fundação gostaria de mover a carta: ");
-                    //método pilha de fileiras para fundações
+                    //método pilha de fundação para fileiras
+                    facade.moverCartaFundacaoParaFileira(facade.getFundacao().get(escolherPilha[0]-1).getCartasFundacao(), facade.getFileiras().get(escolherPilha[1]-1).getCartasFileira());
                     continuarJogar = false;
                     break;
 
                 case 5:
                     System.out.println(separador);
-                    imprimirFundacoes();
+                    imprimirFileiras(1);
                     System.out.println(separador);
-                    System.out.print("\nDigite de qual fundação gostaria de mover a carta: ");
+                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
+                    escolherPilha[0] = scan.nextInt();
+
+                    //System.out.print("\nDigite qual carta (ou a partir de qual) gostaria de mover: ");
+                    //imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getCartasFileira());
+                    //int opcaoCartaEscolhida = scan.nextInt();
                     
-                    System.out.println(separador);
-                    imprimirFileiras();
-                    System.out.println(separador);
-                    System.out.print("\nDigite para qual fileira gostaria de mover a carta: ");
-                    //método pilha de fundação para fileiras
+
+                    System.out.print("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
+                    escolherPilha[1] = scan.nextInt();
+
+                    //método pilha de fileira para fileiras
+                    facade.moverFileiraParaFileira(facade.getFileiras().get(escolherPilha[0]-1).getCartasFileira(), facade.getFileiras().get(escolherPilha[1]-1).getCartasFileira(), 1);
                     continuarJogar = false;
                     break;
 
                 case 6:
-                    System.out.println(separador);
-                    imprimirFileiras();
-                    System.out.println(separador);
-                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
-
-                    System.out.print("\nDigite qual carta (ou a partir de qual) gostaria de mover: ");
-
-                    System.out.print("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
-                    //método pilha de fundação para fileiras
-                    continuarJogar = false;
-                    break;
-
-                case 7:
+                    facade.moverDescarteParaEstoque(facade.getDescarte().getCartasDescarte(), facade.getEstoque().getCartasEstoque(), 0);
                     //método pilha de descarte para estoque
                     continuarJogar = false;
                     break;
@@ -189,13 +206,14 @@ public class MenuPaciencia {
      * 
      * Função para exibir os dados(montes) do jogo
      */
-    private void exibirDadosJogo(){ 
-        System.out.print("\n1 - ESTOQUE: ");
-        imprimirCartas(controllerPaciencia.getEstoque().getCartasEstoque());//mostra o estoque do jogo
-        System.out.print("\n2 - DESCARTE: ");
-        imprimirCartas(controllerPaciencia.getDescarte().getCartasDescarte());//cartas descartadas
-        imprimirFundacoes();
-        imprimirFileiras();
+    private void exibirDadosJogo(){
+        int opcao = 1;
+        System.out.print("\n" + opcao +  " - ESTOQUE: ");
+        imprimirCartas(facade.getEstoque().getCartasEstoque());//mostra o estoque do jogo
+        System.out.print("\n" + (opcao++) +  " - DESCARTE: ");
+        imprimirCartas(facade.getDescarte().getCartasDescarte());//cartas descartadas
+        opcao = imprimirFundacoes(opcao++);
+        imprimirFileiras(opcao);
     }
 
     /**
@@ -203,38 +221,28 @@ public class MenuPaciencia {
      * Função para imprimir as fundações do jogo
      * 
      */
-    private void imprimirFundacoes(){
-        System.out.print("\n3 - FUNDAÇÃO 1: ");
-        imprimirCartas(controllerPaciencia.getFundacao().get(0).getCartasFundacao());
-        System.out.print("\n4 - FUNDAÇÃO 2: ");
-        imprimirCartas(controllerPaciencia.getFundacao().get(1).getCartasFundacao());
-        System.out.print("\n5 - FUNDAÇÃO 3: ");
-        imprimirCartas(controllerPaciencia.getFundacao().get(2).getCartasFundacao());
-        System.out.print("\n6 - FUNDAÇÃO 4: ");
-        imprimirCartas(controllerPaciencia.getFundacao().get(3).getCartasFundacao());
+    private int imprimirFundacoes(int opcao){
+        for(int i=0; i<4; i++){
+            System.out.print("\n" + opcao +  " - FUNDAÇÃO " +  (i+1) + ": ");
+            imprimirCartas(facade.getFundacao().get(i).getCartasFundacao()); //cartas fundação i
+            opcao++;
+        } return opcao;
     }
+
 
     /**
      * 
      * Função para imprimir as fileiras do jogo
      * 
      */
-    private void imprimirFileiras(){
-        System.out.print("\n7 - FILEIRA 1: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(0).getCartasFileira());//cartas fileira 1
-        System.out.print("\n8 - FILEIRA 2: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(1).getCartasFileira());//cartas fileira 2
-        System.out.print("\n9 - FILEIRA 3: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(2).getCartasFileira());//cartas fileira 3
-        System.out.print("\n10 - FILEIRA 4: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(3).getCartasFileira());//cartas fileira 4
-        System.out.print("\n11 - FILEIRA 5: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(4).getCartasFileira());//cartas fileira 5
-        System.out.print("\n12 - FILEIRA 6: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(5).getCartasFileira());//cartas fileira 6
-        System.out.print("\n13 - FILEIRA 7: ");
-        imprimirCartas(controllerPaciencia.getFileiras().get(6).getCartasFileira());//cartas fileira 7
+    private int imprimirFileiras(int opcao){
+        for (int i=0; i<7; i++) {
+            System.out.print("\n" + opcao +  " - FILEIRA " +  (i+1) + ": ");
+            imprimirCartas(facade.getFileiras().get(i).getCartasFileira());//cartas fileira i
+            opcao++;
+        } return opcao;
     }
+
 
     /**
      * 
@@ -247,6 +255,19 @@ public class MenuPaciencia {
         
         while(it.hasNext()){
             System.out.print(it.next());
+        }
+    }
+
+    private void imprimirCartasDisponiveis(List<Carta> cartas){
+        Iterator<Carta> it = cartas.iterator();
+        int opcao = 1;
+
+        while(it.hasNext()){
+            Carta carta = (Carta)it.next();
+            if(carta.isVisivel()){
+                System.out.println(opcao + " - " + carta);
+                
+            } opcao++;
         }
     }
 

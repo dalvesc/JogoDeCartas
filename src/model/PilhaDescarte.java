@@ -22,19 +22,6 @@ public class PilhaDescarte {
     public void addCarta(Carta carta){
         this.descarte.add(carta);
     }
-    
-    //falta comentar
-    public void moverPilhaEstoque(){
-        
-    }
-    
-    public void moverCartaFundacao(){
-        
-    }
-    
-    public void moverCartaFileira(){
-        
-    }
 
     @Override
     public String toString() {

@@ -23,18 +23,6 @@ public class PilhaFileira {
         this.fileira.add(carta);
     }
     
-    public void moverCartaFundacao(){
-        
-    }
-    
-    public void moverCartaFileira(){
-        
-    }
-    
-    public void virarCarta(){
-        
-    }
-    
     @Override
     public String toString() {
         return fileira.toString();

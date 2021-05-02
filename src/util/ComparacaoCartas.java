@@ -10,24 +10,40 @@ import model.Carta;
  * @author Adlla Katarine e Daniel Alves
  */
 public class ComparacaoCartas {
-    Carta carta1, carta2;
+    private Carta carta1, carta2;
 
-    public ComparacaoCartas(Carta carta1, Carta carta2){
-        this.carta1 = carta1;
-        this.carta2 = carta2;
+    public ComparacaoCartas(Carta carta_1, Carta carta_2){
+        carta1 = carta_1;
+        carta2 = carta_2;
     }
 
     /**
-     * 
-     * Comparar cartas por cores
-     * falta mudar isso
-     * @return true caso as cores sejam diferentes e de pesos diferentes 
+     * Método que compara os naipes e os pesos de duas cartas.
+     * @return true forem do mesmo naipe e estiverem em ordem crescente.
      */
-    public boolean ComparacaoCoresDiferentes(){
-        //substituir por compareTo
-        if(!this.carta1.getCor().equals(this.carta2.getCor()) && this.carta1.getPeso() != this.carta2.getPeso()){
-            return true;
-        }
-        return false;
+    public boolean compararOrdemFundacao(){
+        return carta1.getNaipe().equals(carta2.getNaipe()) && compararPeso()==-1;
+    }
+
+
+    /**
+     * Método que compara as cores e os pesos de duas cartas.
+     * @return true se forem de cores diferentes e estiverem em ordem decrescente.
+     */
+    public boolean compararOrdemFileira(){
+        return !carta1.getCor().equals(carta2.getCor()) && compararPeso()==1;
+    }
+
+    /**
+     * Método que compara os pesos de duas cartas.
+     * @return 1 se a diferença entre os pesos for de valor 1, -1 se a diferença tiver esse valor ou 0 se os pesos
+     * forem iguais ou diferente dos anteriores.
+     */
+    private int compararPeso(){
+        if(carta2.getPeso()-carta1.getPeso()== 1){
+            return 1;
+        } else if(carta2.getPeso()-carta1.getPeso()== -1){
+            return -1;
+        } return 0;
     }
 }

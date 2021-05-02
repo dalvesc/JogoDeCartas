@@ -26,43 +26,17 @@ public class ControllerPaciencia{
         this.fundacoes = new ArrayList<>(4);
         this.fileiras = new ArrayList<>(7);
         distribuirCartasFileiras();
+        criarFundacoesVazias();
         addCartasEstoque();
     }
 
-    /**
-     * 
-     * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
-     *  //gerar exception
-     * @param quantidade //quantidade de cartas que irá exibir do estoque
-     * @return boolean  //retorna se pode ou não exibir as cartas 
-     */
-    public boolean qtdVirarCartasEstoque(int quantidade){
-        if(quantidade==1 || quantidade==3){
-            if(this.estoque.setQtdCartasMovidas(quantidade))
-                return true;
-        } 
-        return false;
-    }
 
-/*
-    public void ocultarCartas(){
-
-    }
-
-    public void informarPilhasVazias(){
-        
-    }
-
-    
-    public void movimentarCartas(){
-    }
-  */  
     /**
      * 
      * Método que distribui as cartas entre todas as fileiras.
      * 
      */
-    public void distribuirCartasFileiras(){
+    private void distribuirCartasFileiras(){
         int qtdCartasDistribuidas = 1;
         for(int i=0; i<7; i++){
             PilhaFileira fileira = new PilhaFileira();
@@ -78,15 +52,39 @@ public class ControllerPaciencia{
         }
     }
 
-    
+    /**
+     * Método que cria as pilhas de fundações vazias.
+     */
+    private void criarFundacoesVazias(){
+        for (int i=0; i<4; i++) {
+            PilhaFundacao fundacao = new PilhaFundacao();
+            this.fundacoes.add(fundacao);
+        }
+    }
+
     /**
      * 
      * Método que adiciona as cartas restantes no baralho ao estoque.
      * 
      */
-    public void addCartasEstoque(){
+    private void addCartasEstoque(){
         this.estoque.addEstoque(this.baralho);
         this.baralho.clear();
+    }
+
+
+    /**
+     * 
+     * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
+     *  //gerar exception
+     * @param quantidade //quantidade de cartas que irá exibir do estoque
+     * @return boolean  //retorna se pode ou não exibir as cartas 
+     */
+    public boolean qtdVirarCartasEstoque(int quantidade){
+        if(quantidade==1 || quantidade==3){
+            if(this.estoque.setQtdCartasMovidas(quantidade))
+                return true;
+        } return false;
     }
 
     /**

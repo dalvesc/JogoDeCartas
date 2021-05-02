@@ -34,14 +34,9 @@ public class PilhaFundacao {
     public boolean verificarOrdem(){
         return false;
     }
-/*
 
-   
-    public void moverCartaFileira(){
-        
-    }
     @Override
     public String toString() {
         return fundacao.toString();
-    }*/
+    }
 }

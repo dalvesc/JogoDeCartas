@@ -23,7 +23,7 @@ public class ControllerMovimentos {
      * @param quantidadeMover quantidade de cartas que será movida
      */
     public static void moverEstoqueParaDescarte(List<Carta> estoque, List<Carta> descarte, int quantidadeMover){
-        MoverCartas.move(estoque, descarte, quantidadeMover);
+        MoverCartas.move(estoque, descarte, quantidadeMover, "NO_RULE");
     }
 
     /**
@@ -34,7 +34,7 @@ public class ControllerMovimentos {
      * @param quantidadeMover quantidade total do descarte para retornar ao estoque
      */
     public static void moverDescarteParaEstoque(List<Carta> descarte, List<Carta> estoque, int quantidadeMover){
-        MoverCartas.move(descarte, estoque, quantidadeMover);
+        MoverCartas.move(descarte, estoque, quantidadeMover, "NO_RULE");
     }
 
     /**
@@ -44,7 +44,7 @@ public class ControllerMovimentos {
      * @param fileira lista da fileira(será acrescentado aqui)
      */
     public static void moverCartaDescarteParaFileira(List<Carta> descarte, List<Carta> fileira){
-        MoverCartas.move(descarte, fileira, 1);
+        MoverCartas.move(descarte, fileira, 1, "FILEIRA");
     }
 
     /**
@@ -54,7 +54,7 @@ public class ControllerMovimentos {
      * @param fundacao lista da fundacao(será acrescentado aqui)
      */
     public static void moverCartaDescarteParaFundacao(List<Carta> descarte, List<Carta> fundacao){
-        MoverCartas.move(descarte, fundacao, 1);
+        MoverCartas.move(descarte, fundacao, 1, "FUNDACAO");
     }
 
     /**
@@ -64,7 +64,7 @@ public class ControllerMovimentos {
      * @param fileira lista da fileira(será acrescentado aqui)
      */
     public static void moverCartaFundacaoParaFileira(List<Carta> fundacao, List<Carta> fileira){
-        MoverCartas.move(fundacao, fileira, 1);
+        MoverCartas.move(fundacao, fileira, 1, "FILEIRA");
     }
 
     /**
@@ -75,7 +75,7 @@ public class ControllerMovimentos {
      * @param quantidadeMover quantidade de cartas que será movida
      */
     public static void moverFileiraParaFileira(List<Carta> fileira1, List<Carta> fileira2, int quantidadeMover){
-        MoverCartas.move(fileira1, fileira2, quantidadeMover);
+        MoverCartas.move(fileira1, fileira2, quantidadeMover, "FILEIRA");
     }
 
     /**
@@ -85,6 +85,6 @@ public class ControllerMovimentos {
      * @param fundacao lista da fundacao(será acrescentado aqui)
      */
     public static void moverCartaFileiraParaFundacao(List<Carta> fileira, List<Carta> fundacao){
-        MoverCartas.move(fileira, fundacao, 1);
+        MoverCartas.move(fileira, fundacao, 1, "FUNDACAO");
     }
 }
