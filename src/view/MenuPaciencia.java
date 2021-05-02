@@ -65,6 +65,7 @@ public class MenuPaciencia {
 
                 case 4:
                     menuMoverCarta();
+                    continuarJogar = !parabenizarJogoGanho();
                     break;
 
                 case 5:
@@ -87,7 +88,7 @@ public class MenuPaciencia {
      * Função com opções para movimentação das cartas
      * 
      */
-    private void menuMoverCarta(){
+    private boolean menuMoverCarta(){
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou retornar
         int opcao;
         int[] escolherPilha = new int[2];
@@ -186,7 +187,7 @@ public class MenuPaciencia {
                     break;
 
                 case 6:
-                    facade.moverDescarteParaEstoque(facade.getDescarte().getCartasDescarte(), facade.getEstoque().getCartasEstoque(), 0);
+                    facade.moverDescarteParaEstoque(facade.getDescarte(), facade.getEstoque());
                     //método pilha de descarte para estoque
                     continuarJogar = false;
                     break;
@@ -200,6 +201,7 @@ public class MenuPaciencia {
 
              }
         } while(continuarJogar);
+        return continuarJogar;
     }
     
     /**
@@ -264,11 +266,18 @@ public class MenuPaciencia {
 
         while(it.hasNext()){
             Carta carta = (Carta)it.next();
-            if(carta.isVisivel()){
+            if(((Carta)it.next()).isVisivel()){
                 System.out.println(opcao + " - " + carta);
                 
             } opcao++;
         }
+    }
+
+    public boolean parabenizarJogoGanho(){
+        if(facade.verificarJogoGanho()){
+            System.out.println("Parabéns!!! Você ganhou o jogo!");
+            return true;
+        } return false;
     }
 
     /**

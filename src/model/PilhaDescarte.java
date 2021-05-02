@@ -23,6 +23,14 @@ public class PilhaDescarte {
         this.descarte.add(carta);
     }
 
+    public void clearDescarte(){
+        descarte.clear();
+    }
+
+    public Carta removerCarta(){
+        return this.descarte.remove(0);
+    }
+
     @Override
     public String toString() {
         return descarte.toString();

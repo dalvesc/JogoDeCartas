@@ -1,7 +1,10 @@
 package util;
 
+//import java.util.ArrayList;
+//import java.util.Collections;
 import java.util.List;
 import model.Carta;
+//import model.PilhaFileira;
 
 
 /**
@@ -43,11 +46,28 @@ public class MoverCartas {
         }
     }
 
+    /**public static void moveO(List<Carta> cartas1, List<Carta> cartas2, int quantidadeMover, String pilha){
+        for(int i = 0; i < quantidadeMover; i++){
+            if(podeMover(cartas1.get(cartas1.size()-quantidadeMover), cartas2.get(cartas2.size()-1), pilha)){
+                cartas2.add(cartas1.remove(cartas1.size() - 1));
+            }
+        }
+    }
+
+    public static void moverFileira(PilhaFileira fileira1, PilhaFileira fileira2, int quantidadeMover, String pilha){
+        List<Carta> fileiraAux = new ArrayList<Carta>();
+        for (int i = 0; i < quantidadeMover; i++) {
+            if(podeMover(cartas1.get(cartas1.size()-quantidadeMover), cartas2.get(cartas2.size()-1), pilha))
+            fileiraAux.add(fileira1.getCartasFileira().remove(fileira1.getCartasFileira().size() - 1));
+        } Collections.reverse(fileiraAux);
+        fileira2.addCartas(fileiraAux);
+    }*/
+
     /**
      * Método que verifica se pode mover a(s) carta(s) de acordo com as regras da fundação e da fileira.
      * @param carta1
      * @param carta2
-     * @param pilha "FUNDACAO", "FILEIIRA" OU "NO_RULE"
+     * @param pilha "FUNDACAO", "FILEIRA" OU "NO_RULE"
      * @return true se puder movimentar.
      */
     private static boolean podeMover(Carta carta1, Carta carta2, String pilha){

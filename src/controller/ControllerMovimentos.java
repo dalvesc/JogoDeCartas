@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 import model.Carta;
+import model.PilhaDescarte;
+import model.PilhaEstoque;
 import util.MoverCartas;
 
 
@@ -31,10 +33,11 @@ public class ControllerMovimentos {
      * 
      * @param descarte lista do descarte(será removido daqui)
      * @param estoque lista do estoque(será acrescentado aqui)
-     * @param quantidadeMover quantidade total do descarte para retornar ao estoque
      */
-    public static void moverDescarteParaEstoque(List<Carta> descarte, List<Carta> estoque, int quantidadeMover){
-        MoverCartas.move(descarte, estoque, quantidadeMover, "NO_RULE");
+    public static void moverDescarteParaEstoque(PilhaDescarte descarte, PilhaEstoque estoque){
+        estoque.addEstoque(descarte.getCartasDescarte());
+        descarte.clearDescarte();
+        //MoverCartas.move(descarte, estoque, quantidadeMover, "NO_RULE");
     }
 
     /**

@@ -24,15 +24,12 @@ public class PilhaFundacao {
      * @param carta
      * @return
      */
-    public boolean addCarta(Carta carta){
-        if(verificarOrdem()){
-            return this.fundacao.add(carta);
-        } return false;
+    public void addCarta(Carta carta){
+        this.fundacao.add(carta);
     }
- 
-    
-    public boolean verificarOrdem(){
-        return false;
+
+    public Carta removerCarta(){
+        return this.fundacao.remove(0);
     }
 
     @Override

@@ -22,6 +22,14 @@ public class PilhaFileira {
     public void addCarta(Carta carta){
         this.fileira.add(carta);
     }
+
+    public void addCartas(List<Carta> OtherFileira){
+        this.fileira.addAll(OtherFileira);
+    }
+
+    public Carta removerCarta(){
+        return this.fileira.remove(0);
+    }
     
     @Override
     public String toString() {

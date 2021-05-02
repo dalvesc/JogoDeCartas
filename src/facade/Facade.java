@@ -48,8 +48,8 @@ public class Facade {
         ControllerMovimentos.moverEstoqueParaDescarte(estoque, descarte, quantidadeMover);
     }
     
-    public void moverDescarteParaEstoque(List<Carta> descarte, List<Carta> estoque, int quantidadeMover){
-        ControllerMovimentos.moverDescarteParaEstoque(descarte, estoque, quantidadeMover);
+    public void moverDescarteParaEstoque(PilhaDescarte descarte, PilhaEstoque estoque){
+        ControllerMovimentos.moverDescarteParaEstoque(descarte, estoque);
     }
 
     public void moverCartaDescarteParaFileira(List<Carta> descarte, List<Carta> fileira){
@@ -70,5 +70,9 @@ public class Facade {
 
     public void moverCartaFileiraParaFundacao(List<Carta> fileira, List<Carta> fundacao){
         ControllerMovimentos.moverCartaFileiraParaFundacao(fileira, fundacao);
+    }
+
+    public boolean verificarJogoGanho(){
+        return controllerPaciencia.verificarJogoGanho();
     }
 }

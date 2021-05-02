@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import util.MostrarCarta;
 
 
 /**
@@ -32,6 +35,8 @@ public class PilhaEstoque {
 
     public void addEstoque(List<Carta> estoque) {
         this.estoque.addAll(estoque);
+        Collections.reverse(estoque);
+        MostrarCarta.mostrar(estoque, estoque.size(), false);
     }
     
     /**public void addCarta(Carta carta){
@@ -44,6 +49,10 @@ public class PilhaEstoque {
                 estoque.remove(estoque.size()-1);
             }
         }
+    }
+
+    public Carta removerCarta(){
+        return this.estoque.remove(0);
     }
 
     @Override

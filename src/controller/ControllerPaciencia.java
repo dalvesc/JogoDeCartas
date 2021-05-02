@@ -95,7 +95,7 @@ public class ControllerPaciencia{
      * 
      */
     public void mostrarCartas(List<Carta> cartas, int quantidadeParaMostrar){
-        MostrarCarta.mostrar(cartas, quantidadeParaMostrar);
+        MostrarCarta.mostrar(cartas, quantidadeParaMostrar, true);
     }
 
     public List<PilhaFileira> getFileiras(){
@@ -112,5 +112,18 @@ public class ControllerPaciencia{
 
     public PilhaDescarte getDescarte(){
         return descarte;
+    }
+
+    /**
+     * Método que verifica se o jogo foi ganho, conferindo se toda as pilhas de fundações estão completas (com 13
+     * cartas cada).
+     * @return true se todas as pilhas estiverem completas.
+     */
+    public boolean verificarJogoGanho(){
+        for (PilhaFundacao fundacao : this.fundacoes) {
+            if(fundacao.getCartasFundacao().size()<13){
+                return false;
+            }
+        } return true;
     }
 }

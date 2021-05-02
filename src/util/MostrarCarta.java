@@ -14,9 +14,9 @@ public class MostrarCarta {
 
     private MostrarCarta(){}
     
-    public static void mostrar(List<Carta> cartas, int quantidadeParaMostrar){
+    public static void mostrar(List<Carta> cartas, int quantidadeParaMostrar, boolean visivel){
         for(int i = 0; i < quantidadeParaMostrar; i++){
-            cartas.get(cartas.size() - (i+1)).setVisivel(true);
+            cartas.get(cartas.size() - (i+1)).setVisivel(visivel);
         }
     }
 }
