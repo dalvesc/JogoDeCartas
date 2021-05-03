@@ -64,9 +64,10 @@ public class Facade {
         ControllerMovimentos.moverCartaFundacaoParaFileira(fundacao, fileira);
     }
 
-    public void moverFileiraParaFileira(List<Carta> fileira1, List<Carta> fileira2, int quantidadeMover){
+    public void moverFileiraParaFileira(PilhaFileira fileira1, PilhaFileira fileira2, int quantidadeMover){
         ControllerMovimentos.moverFileiraParaFileira(fileira1, fileira2, quantidadeMover);
     }
+                    
 
     public void moverCartaFileiraParaFundacao(List<Carta> fileira, List<Carta> fundacao){
         ControllerMovimentos.moverCartaFileiraParaFundacao(fileira, fundacao);

@@ -8,42 +8,95 @@ import model.Carta;
  * Classe para comparar as cartas 
  * 
  * @author Adlla Katarine e Daniel Alves
+ * 
  */
 public class ComparacaoCartas {
-    private Carta carta1, carta2;
 
-    public ComparacaoCartas(Carta carta_1, Carta carta_2){
-        carta1 = carta_1;
-        carta2 = carta_2;
-    }
+    private ComparacaoCartas(){}
 
+    
     /**
+     * 
      * Método que compara os naipes e os pesos de duas cartas.
+     * 
      * @return true forem do mesmo naipe e estiverem em ordem crescente.
+     * 
      */
-    public boolean compararOrdemFundacao(){
-        return carta1.getNaipe().equals(carta2.getNaipe()) && compararPeso()==-1;
+    private static boolean compararOrdemFundacao(Carta carta1, Carta carta2){
+        return carta1.getNaipe().equals(carta2.getNaipe()) && compararPeso(carta1,carta2)==-1;
     }
 
-
     /**
+     * 
      * Método que compara as cores e os pesos de duas cartas.
+     * 
      * @return true se forem de cores diferentes e estiverem em ordem decrescente.
+     * 
      */
-    public boolean compararOrdemFileira(){
-        return !carta1.getCor().equals(carta2.getCor()) && compararPeso()==1;
+    private static boolean compararOrdemFileira(Carta carta1, Carta carta2){
+        return !carta1.getCor().equals(carta2.getCor()) && compararPeso(carta1,carta2)==1;
     }
 
     /**
+     * 
      * Método que compara os pesos de duas cartas.
-     * @return 1 se a diferença entre os pesos for de valor 1, -1 se a diferença tiver esse valor ou 0 se os pesos
-     * forem iguais ou diferente dos anteriores.
+     * 
+     * @return 1 se a diferença entre os pesos for diretamente decrescente(formação de fileira),
+     *  -1 se a diferença diretamente crescente(formação de fundação) ou 0 se os pesos
+     * forem iguais ou diferente dos anteriores(não podem se relacionar).
+     * 
      */
-    private int compararPeso(){
+    private static int compararPeso(Carta carta1, Carta carta2){
         if(carta2.getPeso()-carta1.getPeso()== 1){
             return 1;
         } else if(carta2.getPeso()-carta1.getPeso()== -1){
             return -1;
         } return 0;
+    }
+
+     /**
+     * 
+     * Método que verifica se pode mover a(s) carta(s) de acordo com as regras da fundação e da fileira.
+     * 
+     * @param carta1 
+     * @param carta2
+     * @param tipoPilha "FUNDACAO", "FILEIRA" OU "NO_RULE"
+     * @return true se puder movimentar.
+     * 
+     */
+    public static boolean podeMover(Carta carta1, Carta carta2, String tipoPilha){
+        switch (tipoPilha) {
+            case "FUNDACAO":
+                return compararOrdemFundacao(carta1, carta2);
+            case "FILEIRA":
+                return compararOrdemFileira(carta1, carta2);
+            case "NO_RULE":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+        /**
+     * 
+     * Método que verifica se pode mover a(s) carta(s) para uma pilha vazia de acordo com as regras da
+     * fundação e da fileira.
+     * 
+     * @param tipoPilha
+     * @param carta
+     * @return true se puder movimentar.
+     * 
+     */
+    public static boolean movimentarParaPilhaVazia(Carta carta, String tipoPilha){
+        switch (tipoPilha) {
+            case "FUNDACAO":
+                return carta.getValor().equalsIgnoreCase("A");
+            case "FILEIRA":
+                return carta.getValor().equalsIgnoreCase("K");
+            case "NO_RULE":
+                return true;
+            default:
+                return false;
+        }
     }
 }

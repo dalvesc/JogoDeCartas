@@ -4,6 +4,7 @@ import java.util.List;
 import model.Carta;
 import model.PilhaDescarte;
 import model.PilhaEstoque;
+import model.PilhaFileira;
 import util.MoverCartas;
 
 
@@ -77,8 +78,8 @@ public class ControllerMovimentos {
      * @param fileira2 lista da fileira que será acrescentada as cartas (será acrescentado aqui)
      * @param quantidadeMover quantidade de cartas que será movida
      */
-    public static void moverFileiraParaFileira(List<Carta> fileira1, List<Carta> fileira2, int quantidadeMover){
-        MoverCartas.move(fileira1, fileira2, quantidadeMover, "FILEIRA");
+    public static void moverFileiraParaFileira(PilhaFileira fileira1, PilhaFileira fileira2, int quantidadeMover){
+        MoverCartas.moverFileira(fileira1, fileira2, quantidadeMover, "FILEIRA");
     }
 
     /**

@@ -90,6 +90,7 @@ public class ControllerPaciencia{
     /**
      * 
      * Exibir cartas da lista enviada
+     * 
      * @param cartas lista que quer exibir as cartas
      * @param quantidadeParaMostrar quantidade de cartas que quer mostras
      * 
@@ -115,8 +116,10 @@ public class ControllerPaciencia{
     }
 
     /**
+     * 
      * Método que verifica se o jogo foi ganho, conferindo se toda as pilhas de fundações estão completas (com 13
      * cartas cada).
+     * 
      * @return true se todas as pilhas estiverem completas.
      */
     public boolean verificarJogoGanho(){

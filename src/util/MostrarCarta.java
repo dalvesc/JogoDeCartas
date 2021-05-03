@@ -8,7 +8,9 @@ import model.Carta;
  *
  * Classe para exibir cartas de uma lista
  * falta comentar
+ * 
  * @author Adlla Katarine e Daniel Alves
+ * 
  */
 public class MostrarCarta {
 
