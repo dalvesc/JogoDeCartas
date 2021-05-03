@@ -28,7 +28,7 @@ public class PilhaFileira {
     }
 
     public Carta removerCarta(){
-        return this.fileira.remove(0);
+        return this.fileira.remove(fileira.size()-1);
     }
     
     @Override

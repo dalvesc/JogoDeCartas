@@ -28,7 +28,7 @@ public class PilhaDescarte {
     }
 
     public Carta removerCarta(){
-        return this.descarte.remove(0);
+        return this.descarte.remove(descarte.size()-1);
     }
 
     @Override

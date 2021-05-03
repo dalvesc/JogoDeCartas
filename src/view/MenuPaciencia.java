@@ -3,7 +3,6 @@ package view;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import controller.*;
 import facade.Facade;
 import model.Carta;
 
@@ -49,7 +48,7 @@ public class MenuPaciencia {
                     this.quantidadeCartasEstoque = scan.nextInt();
                     if(facade.qtdVirarCartasEstoque(quantidadeCartasEstoque)){
                         facade.mostrarCartas(facade.getEstoque().getCartasEstoque(), quantidadeCartasEstoque); 
-                        ControllerMovimentos.moverEstoqueParaDescarte(facade.getEstoque().getCartasEstoque(), facade.getDescarte().getCartasDescarte(), this.quantidadeCartasEstoque);
+                        facade.moverEstoqueParaDescarte(facade.getEstoque().getCartasEstoque(), facade.getDescarte().getCartasDescarte(), this.quantidadeCartasEstoque);
                     }
                     break;
 

@@ -52,7 +52,7 @@ public class PilhaEstoque {
     }
 
     public Carta removerCarta(){
-        return this.estoque.remove(0);
+        return this.estoque.remove(estoque.size()-1);
     }
 
     @Override

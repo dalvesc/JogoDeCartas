@@ -29,7 +29,7 @@ public class PilhaFundacao {
     }
 
     public Carta removerCarta(){
-        return this.fundacao.remove(0);
+        return this.fundacao.remove(fundacao.size()-1);
     }
 
     @Override
