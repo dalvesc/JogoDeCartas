@@ -44,23 +44,23 @@ public class Facade {
         return controllerPaciencia.getDescarte();
     }
 
-    public void moverEstoqueParaDescarte(List<Carta> estoque, List<Carta> descarte, int quantidadeMover){
+    public void moverEstoqueParaDescarte(List<Carta> estoque, List<Carta> descarte, int quantidadeMover) {
         ControllerMovimentos.moverEstoqueParaDescarte(estoque, descarte, quantidadeMover);
     }
     
-    public void moverDescarteParaEstoque(PilhaDescarte descarte, PilhaEstoque estoque){
+    public void moverDescarteParaEstoque(PilhaDescarte descarte, PilhaEstoque estoque) {
         ControllerMovimentos.moverDescarteParaEstoque(descarte, estoque);
     }
 
-    public void moverCartaDescarteParaFileira(List<Carta> descarte, List<Carta> fileira){
+    public void moverCartaDescarteParaFileira(List<Carta> descarte, List<Carta> fileira) {
         ControllerMovimentos.moverCartaDescarteParaFileira(descarte, fileira);
     }
 
-    public void moverCartaDescarteParaFundacao(List<Carta> descarte, List<Carta> fundacao){
+    public void moverCartaDescarteParaFundacao(List<Carta> descarte, List<Carta> fundacao) {
         ControllerMovimentos.moverCartaDescarteParaFundacao(descarte, fundacao);
     }
 
-    public void moverCartaFundacaoParaFileira(List<Carta> fundacao, List<Carta> fileira){
+    public void moverCartaFundacaoParaFileira(List<Carta> fundacao, List<Carta> fileira) {
         ControllerMovimentos.moverCartaFundacaoParaFileira(fundacao, fileira);
     }
 

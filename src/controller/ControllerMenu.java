@@ -7,7 +7,7 @@ import util.Embaralhar;
 
 
 /**
- * Controller para criar e embaralhar baralho
+ * Controller para criar e embaralhar baralho.
  * 
  * @author Adlla Katarine e Daniel Alves
  */
@@ -21,6 +21,12 @@ public class ControllerMenu {
     }
 
 
+    /**
+     * 
+     * Método que retorna o baralho embaralhado.
+     * 
+     * @return ArrayList<Carta> - retorna o baralho.
+     */
     public ArrayList<Carta> getBaralhoEmbaralhado(){
         return this.baralho;
     }

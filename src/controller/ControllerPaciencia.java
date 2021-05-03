@@ -7,7 +7,7 @@ import util.MostrarCarta;
 
 /**
  * 
- * Controller para funções do jogo Paciência
+ * Controller para funções do jogo Paciência.
  * 
  * @author Adlla Katarine e Daniel Alves
  */
@@ -53,7 +53,9 @@ public class ControllerPaciencia{
     }
 
     /**
+     * 
      * Método que cria as pilhas de fundações vazias.
+     * 
      */
     private void criarFundacoesVazias(){
         for (int i=0; i<4; i++) {
@@ -72,45 +74,67 @@ public class ControllerPaciencia{
         this.baralho.clear();
     }
 
-
     /**
      * 
      * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
-     *  //gerar exception
-     * @param quantidade //quantidade de cartas que irá exibir do estoque
-     * @return boolean  //retorna se pode ou não exibir as cartas 
+     *
+     * @param quantidade quantidade de cartas que irá exibir do estoque.
+     * @return boolean - retorna se pode ou não exibir as cartas.
      */
     public boolean qtdVirarCartasEstoque(int quantidade){
         if(quantidade==1 || quantidade==3){
-            if(this.estoque.setQtdCartasMovidas(quantidade))
-                return true;
-        } return false;
+            return this.estoque.setQtdCartasMovidas(quantidade);
+        } 
+        return false;
     }
 
     /**
      * 
-     * Exibir cartas da lista enviada
+     * Exibir cartas da lista enviada.
      * 
      * @param cartas lista que quer exibir as cartas
      * @param quantidadeParaMostrar quantidade de cartas que quer mostras
-     * 
      */
     public void mostrarCartas(List<Carta> cartas, int quantidadeParaMostrar){
         MostrarCarta.mostrar(cartas, quantidadeParaMostrar, true);
     }
 
+    /**
+     * 
+     * Método que retorna uma List com as pilhas de fileira.
+     * 
+     * @return List<PilhaFileira>.
+     */
     public List<PilhaFileira> getFileiras(){
         return this.fileiras;
     }
 
+    /**
+     * 
+     * Método que retorna a pilha de estoque.
+     * 
+     * @return PilhaEstoque da carta.
+     */
     public PilhaEstoque getEstoque(){
         return this.estoque;
     }
 
+    /**
+     * 
+     * Método que retorna uma List com as pilhas de fundação.
+     * 
+     * @return List<PilhaFundacao>
+     */
     public List<PilhaFundacao> getFundacao(){
         return this.fundacoes;
     }
 
+    /**
+     * 
+     * Método que retorna a pilha de descarte.
+     * 
+     * @return PilhaDescarte da carta.
+     */
     public PilhaDescarte getDescarte(){
         return descarte;
     }
@@ -120,11 +144,11 @@ public class ControllerPaciencia{
      * Método que verifica se o jogo foi ganho, conferindo se toda as pilhas de fundações estão completas (com 13
      * cartas cada).
      * 
-     * @return true se todas as pilhas estiverem completas.
+     * @return boolean - true se todas as pilhas estiverem completas.
      */
     public boolean verificarJogoGanho(){
         for (PilhaFundacao fundacao : this.fundacoes) {
-            if(fundacao.getCartasFundacao().size()<13){
+            if(fundacao.getPilha().size()<13){
                 return false;
             }
         } return true;

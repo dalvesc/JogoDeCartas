@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,52 +10,35 @@ import util.MostrarCarta;
  *
  * @author Adlla Katarine e Daniel Alves
  */
-public class PilhaEstoque {
-    private List<Carta> estoque;
-    private int qtdCartasMovidas;
+public class PilhaEstoque extends Pilha{
 
     public PilhaEstoque() {
-        this.estoque = new ArrayList<>();
-        this.qtdCartasMovidas = 1;
+        super();
     }
 
-    public List<Carta> getCartasEstoque() {
-        return estoque;
-    }
-
-    //falta comentar
-    public boolean setQtdCartasMovidas(int qtdCartasMovidas){
-        if(qtdCartasMovidas <= estoque.size()){
-        this.qtdCartasMovidas = qtdCartasMovidas;
-        return true;
-        }
-        return false;
-    }
-
+    /**
+     * 
+     * Método que adiciona uma List de cartas no estoque (caso esteja vazio), inverte a ordem e chama o método
+     * que oculta as cartas.
+     * 
+     * @param estoque uma List<Carta>.
+     */
     public void addEstoque(List<Carta> estoque) {
-        this.estoque.addAll(estoque);
-        Collections.reverse(estoque);
-        MostrarCarta.mostrar(estoque, estoque.size(), false);
-    }
-    
-    /**public void addCarta(Carta carta){
-        this.estoque.add(carta);
-    }*/
-    
-    public void moverCarta(){
-        for(int i =0; i<qtdCartasMovidas; i++){
-            if(!estoque.isEmpty()){
-                estoque.remove(estoque.size()-1);
-            }
+        if(this.pilha.isEmpty()){
+            this.pilha.addAll(estoque);
+            Collections.reverse(this.pilha);
+            MostrarCarta.mostrar(this.pilha, this.pilha.size(), false);
         }
     }
 
-    public Carta removerCarta(){
-        return this.estoque.remove(estoque.size()-1);
-    }
-
-    @Override
-    public String toString() {
-        return estoque.toString();
+    /**
+     * 
+     * Método que verifica se tem carta(s) suficiente(s) no estoque para ser(em) movida(s).
+     * 
+     * @param qtdCartasMovidas quantidade de cartas que deseja ser movida.
+     * @return true caso possa ser movida a quantidade de cartas do estoque.
+     */
+    public boolean verificaMovimentacaoEstoque(int qtdCartasMovidas){
+        return (qtdCartasMovidas <= this.pilha.size()) == true;
     }
 }

@@ -5,10 +5,9 @@ import model.Carta;
 
 /**
  * 
- * Classe para comparar as cartas 
+ * Classe para comparar as cartas.
  * 
  * @author Adlla Katarine e Daniel Alves
- * 
  */
 public class ComparacaoCartas {
 
@@ -19,8 +18,7 @@ public class ComparacaoCartas {
      * 
      * Método que compara os naipes e os pesos de duas cartas.
      * 
-     * @return true forem do mesmo naipe e estiverem em ordem crescente.
-     * 
+     * @return boolean - true forem do mesmo naipe e estiverem em ordem crescente.
      */
     private static boolean compararOrdemFundacao(Carta carta1, Carta carta2){
         return carta1.getNaipe().equals(carta2.getNaipe()) && compararPeso(carta1,carta2)==-1;
@@ -30,8 +28,7 @@ public class ComparacaoCartas {
      * 
      * Método que compara as cores e os pesos de duas cartas.
      * 
-     * @return true se forem de cores diferentes e estiverem em ordem decrescente.
-     * 
+     * @return boolean - true se forem de cores diferentes e estiverem em ordem decrescente.
      */
     private static boolean compararOrdemFileira(Carta carta1, Carta carta2){
         return !carta1.getCor().equals(carta2.getCor()) && compararPeso(carta1,carta2)==1;
@@ -41,10 +38,9 @@ public class ComparacaoCartas {
      * 
      * Método que compara os pesos de duas cartas.
      * 
-     * @return 1 se a diferença entre os pesos for diretamente decrescente(formação de fileira),
+     * @return int - 1 se a diferença entre os pesos for diretamente decrescente(formação de fileira),
      *  -1 se a diferença diretamente crescente(formação de fundação) ou 0 se os pesos
      * forem iguais ou diferente dos anteriores(não podem se relacionar).
-     * 
      */
     private static int compararPeso(Carta carta1, Carta carta2){
         if(carta2.getPeso()-carta1.getPeso()== 1){
@@ -61,8 +57,7 @@ public class ComparacaoCartas {
      * @param carta1 
      * @param carta2
      * @param tipoPilha "FUNDACAO", "FILEIRA" OU "NO_RULE"
-     * @return true se puder movimentar.
-     * 
+     * @return boolean - true se puder movimentar.
      */
     public static boolean podeMover(Carta carta1, Carta carta2, String tipoPilha){
         switch (tipoPilha) {
@@ -77,15 +72,14 @@ public class ComparacaoCartas {
         }
     }
 
-        /**
+    /**
      * 
      * Método que verifica se pode mover a(s) carta(s) para uma pilha vazia de acordo com as regras da
      * fundação e da fileira.
      * 
-     * @param tipoPilha
+     * @param tipoPilha "FUNDACAO", "FILEIRA" OU "NO_RULE"
      * @param carta
-     * @return true se puder movimentar.
-     * 
+     * @return boolean - true se puder movimentar.
      */
     public static boolean movimentarParaPilhaVazia(Carta carta, String tipoPilha){
         switch (tipoPilha) {

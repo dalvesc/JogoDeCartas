@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import exceptions.AcaoProibida;
+
 
 /**
  * 
@@ -25,17 +27,16 @@ public class Menu {
             switch(opcao){
 
                 case 1:
-                new MenuPaciencia(1);//opção para iniciar o jogo de paciência
-                break;
+                    new MenuPaciencia(1);//opção para iniciar o jogo de paciência
+                    break;
 
                 case 0:
-                continuarJogar = false;//opção para encerrar o programa
-                break;
+                    continuarJogar = false;//opção para encerrar o programa
+                    break;
 
                 default:
-                    System.out.println("Opção inválida! Digite novamente: ");
+                    throw new AcaoProibida();
             }
         }while(continuarJogar);
-        
     }
 }

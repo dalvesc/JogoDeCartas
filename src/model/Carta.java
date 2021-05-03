@@ -6,7 +6,7 @@ package model;
  * @author Adlla Katarine e Daniel Alves
  */
 public class Carta {
-    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RESET = "\u001B[0m";//reseta a cor pro padrão
     public static final String ANSI_RED = "\u001B[31m";// transformar a cor da letra em vermelho
     public static final String ANSI_WHITE = "\u001B[37m";// transformar a cor da letra em branca
     private String cartaOculta = "[▒▒▒▒]";//modo de exibição quando a carta está virada
