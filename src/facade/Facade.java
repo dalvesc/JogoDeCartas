@@ -29,7 +29,7 @@ public class Facade {
     }
     
     public List<PilhaFileira> getFileiras(){
-        return  controllerPaciencia.getFileiras();
+        return controllerPaciencia.getFileiras();
     }
 
     public PilhaEstoque getEstoque(){

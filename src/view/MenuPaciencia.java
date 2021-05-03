@@ -30,7 +30,6 @@ public class MenuPaciencia {
     /**
      * 
      * Menu inicial do jogo de paciência
-     * @
      * 
      */
     private void exibirOpcoesPaciencia() {
@@ -38,7 +37,7 @@ public class MenuPaciencia {
         int opcao;//opção escolhida pelo usuário
 
         do{
-            System.out.println(separador);
+            System.out.print(separador);
             exibirDadosJogo();
             System.out.println(separador);
 
@@ -47,8 +46,7 @@ public class MenuPaciencia {
                 + "[2] - Virar carta da pilha de fileira.\n"
                 + "[3] - Pedir dados da carta.\n"
                 + "[4] - Mover cartas.\n"
-                + "[5] - Iniciar jogo novamente.\n"
-                + "[0] - Retornar ao menu anterior.");
+                + "[0] - Iniciar jogo novamente.\n");
             opcao = scan.nextInt();
 
             switch (opcao) {
@@ -66,7 +64,7 @@ public class MenuPaciencia {
                     break;
 
                 case 2:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFileiras(1); //imprimindo fileiras do jogo
                     System.out.println(separador);
 
@@ -76,35 +74,51 @@ public class MenuPaciencia {
                     break;
 
                 case 3:
-                //não funciona
                     System.out.println("Digite de qual pilha gostaria de ver dados da carta: ");
-                    System.out.println("1 - Fundação \n 2 - Fileira");
+                    System.out.println("1 - Fundação \n2 - Fileira");
                     opcao = scan.nextInt();
                     switch (opcao) {
                         case 1: 
-                            System.out.println(separador);
+                            System.out.print(separador);
                             imprimirFundacoes(1);
                             System.out.println(separador);
-                            dadosCarta(facade.getFundacao().getPilha());
+                            
+                            System.out.println("Digite de qual fundação deseja olhar a carta: ");
+                            opcao = scan.nextInt();
+                            if(!facade.getFundacao().get(opcao-1).getPilha().isEmpty()){
+                                System.out.print(separador);
+                                System.out.println("\nCarta: " + facade.getFundacao().get(opcao-1).getPilha().get(facade.getFundacao().get(opcao-1).getPilha().size()-1));
+                                System.out.println(separador);
+                            } else {
+                                System.out.println(ANSI_CYAN + "Pilha Vazia" + ANSI_RESET);
+                            }
+                            break;
 
                         case 2: 
-                            System.out.println(separador);
+                            System.out.print(separador);
                             imprimirFileiras(1);
                             System.out.println(separador);
-                            dadosCarta(facade.getFileiras().getPilha());
+
+                            System.out.println("Digite de qual fileira deseja olhar a carta: ");
+                            opcao = scan.nextInt();
+                            if(!facade.getFileiras().get(opcao-1).getPilha().isEmpty()){
+                                System.out.print(separador);
+                                System.out.println("\nCarta: " + facade.getFileiras().get(opcao-1).getPilha().get(facade.getFileiras().get(opcao-1).getPilha().size()-1));
+                                System.out.println(separador);
+                            } else {
+                                System.out.println(ANSI_CYAN + "Pilha Vazia" + ANSI_RESET);
+                            }
+                            break;
                         
                         default:
                             printOpcaoInvalida();
+                            break;
                     }
                     break;
 
                 case 4:
                     menuMoverCarta();
                     continuarJogar = !parabenizarJogoGanho();
-                    break;
-
-                case 5:
-                    //reiniciar jogo
                     break;
 
                 case 0:
@@ -120,7 +134,6 @@ public class MenuPaciencia {
     /**
      * 
      * Função com opções para movimentação das cartas
-     * @throws AcaoProibida
      * 
      */
     private boolean menuMoverCarta() {
@@ -129,7 +142,7 @@ public class MenuPaciencia {
         int[] escolherPilha = new int[2]; //salvar fileiras para movimentação das cartas
         
         do{
-            System.out.println(separador);
+            System.out.print(separador);
             exibirDadosJogo();
             System.out.println(separador);
 
@@ -145,7 +158,7 @@ public class MenuPaciencia {
             opcao = scan.nextInt();
             switch (opcao) {
                 case 1:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     System.out.println("Carta do descarte: " + facade.getDescarte().getPilha().get(facade.getDescarte().getPilha().size() - 1));//imprimindo a carta que será movida do descarte
                     
                     imprimirFileiras(1);//imprimindo fileiras do jogo
@@ -160,7 +173,7 @@ public class MenuPaciencia {
                     break;
 
                 case 2:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     System.out.println("Carta do descarte: " + facade.getDescarte().getPilha().get(facade.getDescarte().getPilha().size() - 1));//imprimindo a carta que será movida do descarte
 
                     imprimirFundacoes(1);//imprimindo fundações do jogo
@@ -175,16 +188,16 @@ public class MenuPaciencia {
                     break;
 
                 case 3:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFileiras(1);//imprimindo fileiras do jogo
                     System.out.println(separador);
-                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
+                    System.out.println("\nDigite de qual fileira gostaria de mover a carta: ");
                     escolherPilha[0] = scan.nextInt();
 
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFundacoes(1);//imprimindo fundações do jogo
                     System.out.println(separador);
-                    System.out.print("\nDigite para qual fundação gostaria de mover a carta: ");
+                    System.out.println("\nDigite para qual fundação gostaria de mover a carta: ");
                     escolherPilha[1] = scan.nextInt();
 
                     //método pilha de fileiras para fundações
@@ -193,16 +206,16 @@ public class MenuPaciencia {
                     break;
 
                 case 4:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFundacoes(1);//imprimindo fundações do jogo
                     System.out.println(separador);
-                    System.out.print("\nDigite de qual fundação gostaria de mover a carta: ");
+                    System.out.println("\nDigite de qual fundação gostaria de mover a carta: ");
                     escolherPilha[0] = scan.nextInt();
                     
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFileiras(1);//imprimindo fileiras do jogo
                     System.out.println(separador);
-                    System.out.print("\nDigite para qual fileira gostaria de mover a carta: ");
+                    System.out.println("\nDigite para qual fileira gostaria de mover a carta: ");
                     escolherPilha[1] = scan.nextInt();
 
                     //método pilha de fundação para fileiras
@@ -211,10 +224,10 @@ public class MenuPaciencia {
                     break;
 
                 case 5:
-                    System.out.println(separador);
+                    System.out.print(separador);
                     imprimirFileiras(1);//imprimindo fileiras do jogo
                     System.out.println(separador);
-                    System.out.print("\nDigite de qual fileira gostaria de mover a carta: ");
+                    System.out.println("\nDigite de qual fileira gostaria de mover a carta: ");
                     escolherPilha[0] = scan.nextInt();
 
                     imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getPilha());
@@ -222,7 +235,7 @@ public class MenuPaciencia {
                     int opcaoCartaEscolhida = scan.nextInt();
                     
 
-                    System.out.print("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
+                    System.out.println("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
                     escolherPilha[1] = scan.nextInt();
 
                     //método pilha de fileira para fileiras
@@ -345,16 +358,5 @@ public class MenuPaciencia {
      */
     private void printOpcaoInvalida(){
         System.out.println("Você digitou uma opção inválida!!! Escolha uma das opções disponíveis.");
-    }
-
-    private void dadosCarta(List<Carta> cartas){
-        System.out.println("Qual carta deseja ver?");
-        opcao = scan.nextInt();
-        switch (opcao) {
-            for(int i = 0; i < cartas.size(); i++){
-                case i+1:
-                    System.out.println(cartas.get(i));
-            }
-        }
     }
 }

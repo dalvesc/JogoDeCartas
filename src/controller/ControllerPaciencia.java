@@ -83,7 +83,7 @@ public class ControllerPaciencia{
      */
     public boolean qtdVirarCartasEstoque(int quantidade){
         if(quantidade==1 || quantidade==3){
-            return this.estoque.setQtdCartasMovidas(quantidade);
+            return this.estoque.verificaMovimentacaoEstoque(quantidade);
         } 
         return false;
     }

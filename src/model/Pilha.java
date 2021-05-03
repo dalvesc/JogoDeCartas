@@ -27,7 +27,5 @@ public abstract class Pilha {
     @Override
     public String toString() {
         return pilha.toString();
-    }
-    
-    
+    }  
 }

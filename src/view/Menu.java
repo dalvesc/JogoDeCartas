@@ -17,8 +17,9 @@ public class Menu {
     public static void main(String[] args) throws Exception {
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou encerrar o programa
         int opcao;//opção escolhida pelo usuário
-        System.out.println("\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
         do{
+            System.out.println("\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
+
             System.out.println("\nO que deseja?\n"
             + "[1] - Iniciar Jogo.\n"
             + "[0] - Encerrar Jogo.\n");

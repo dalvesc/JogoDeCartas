@@ -62,22 +62,24 @@ public class MoverCartas {
     public static void moverFileira(PilhaFileira fileira1, PilhaFileira fileira2, int quantidadeMover, String tipoPilha){
         boolean movimentar = false; // true caso obedeça a uma das regras de movimento das fileiras.
         List<Carta> fileiraAux = new ArrayList<Carta>();
+
         if(!fileira1.getPilha().isEmpty()){
            if(!fileira2.getPilha().isEmpty()) {
                if(ComparacaoCartas.podeMover(fileira1.getPilha().get(quantidadeMover), fileira2.getPilha().get(fileira2.getPilha().size()-1) , tipoPilha)){
-                movimentar = true;
+                    movimentar = true;
                 }
            } else{
                 if(ComparacaoCartas.movimentarParaPilhaVazia(fileira1.getPilha().get(quantidadeMover), tipoPilha)){
                     movimentar = true;
                 }
-        } if(movimentar){
-            int tamanhoListaRemover = fileira1.getPilha().size();
-            for (int i = quantidadeMover; i < tamanhoListaRemover; i++) {
-                fileiraAux.add(fileira1.removerCarta());
             }
-            Collections.reverse(fileiraAux);
-            fileira2.addCartasDeOutraFileira(fileiraAux);
+         if(movimentar){
+                int tamanhoListaRemover = fileira1.getPilha().size();
+                for (int i = quantidadeMover; i < tamanhoListaRemover; i++) {
+                    fileiraAux.add(fileira1.removerCarta());
+                }
+                Collections.reverse(fileiraAux);
+                fileira2.addCartasDeOutraFileira(fileiraAux);
             }
         }
     }
