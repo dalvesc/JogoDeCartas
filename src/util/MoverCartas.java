@@ -73,7 +73,7 @@ public class MoverCartas {
                     movimentar = true;
                 }
             }
-         if(movimentar){
+            if(movimentar){
                 int tamanhoListaRemover = fileira1.getPilha().size();
                 for (int i = quantidadeMover; i < tamanhoListaRemover; i++) {
                     fileiraAux.add(fileira1.removerCarta());
