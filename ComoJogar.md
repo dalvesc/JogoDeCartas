@@ -36,6 +36,6 @@ Escolhendo a *opção 4* o jogador é direcionado para o menu que ele pode escol
 
 <img src="./img/prints/MenuMovimento.png"/>
 
-Após o jogador ter finalizado o jogo, esgotado as cartas do estoque, descarte e fileiras e completado todas as fundações do jogo, é exibido todas as fundações, parabenizado e automaticamente levado para o menu inicial do jogo para escolher se quer encerrar o jogo ou começar uma nova partida.
+Após o jogador ter finalizado o jogo, esgotado as cartas do estoque, descarte e fileiras e completado todas as fundações do jogo, é exibido todas as fundações, ele é parabenizado e automaticamente levado para o menu inicial do jogo para escolher se quer encerrar o jogo ou começar uma nova partida.
 
 <img src="./img/prints/JogoGanho.png"/>
