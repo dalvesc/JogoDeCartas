@@ -93,6 +93,6 @@ Utilizamos o padrão factory para que caso no futuro se decida implementar jogos
 # MODELO CONCEITUAL
 <img src="./img/diagramas-uml/DiagramaConceitualUML.PNG"/>
 
-Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/diagramas-uml/DiagramaConceitualUML.png>
+Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/img/diagramas-uml/DiagramaConceitualUML.png>
 
 # MODELO DE BAIXO NÍVEL
