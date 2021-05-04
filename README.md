@@ -101,3 +101,6 @@ Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/
 
 # MODELO DE BAIXO NÍVEL
 
+<img src="./img/diagramas-uml/DiagramaBaixoNivelUML.png"/>
+
+Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/img/diagramas-uml/DiagramaBaixoNivelUML.png>
