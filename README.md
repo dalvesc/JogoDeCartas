@@ -6,7 +6,7 @@ Com toda as funcionalidades do código estando no src. A classe principal sendo 
 
 ## **MODEL**
 
-## Criação de carta
+### Carta
 
 Iniciando com a criação de classe para pode criar o objeto de carta, sendo essas utilizadas para o desenvolvimento do jogo.
 
