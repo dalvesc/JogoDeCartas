@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 import model.Baralho;
 import model.Carta;
-import util.Embaralhar;
+import factory.BaralhoFactory;
 
 
 /**
@@ -15,11 +15,10 @@ public class ControllerMenu {
     ArrayList<Carta> baralho;
 
     public ControllerMenu(int quantidadeBaralho) {
-        Baralho br = new Baralho(quantidadeBaralho);
+        BaralhoFactory bf = new BaralhoFactory();
+        Baralho br = bf.criarBaralho(quantidadeBaralho);
         this.baralho = br.getBaralho();
-        this.baralho = Embaralhar.embaralhar(this.baralho);
     }
-
 
     /**
      * 

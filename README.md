@@ -1,6 +1,6 @@
 ## Getting Started
 
-Seguindo a idéia de fazer um jogo de Paciência o mais modularizado possível, surgiu esse projeto.
+Seguindo a ideia de fazer um jogo de Paciência o mais modularizado possível, surgiu este projeto.
 
 ## Criação de carta
 
@@ -17,7 +17,8 @@ o Paciência, só se utiliza 1 baralho simples, sem coringa, com 52 cartas.
 
 ## Pilhas
 
-Para organização das pilhas de fundações, estoque, fileiras e descarte. Foi utilizando também o padrão factory method
+Para organização das pilhas de fundações, estoque, fileiras e descarte, foi utilizada uma classe abstrata Pilha que implementa os atributos/métodos comuns à todas as pilhas.
+
 
 ## Folder Structure
 
