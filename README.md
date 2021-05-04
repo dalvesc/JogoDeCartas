@@ -10,7 +10,7 @@ Com toda as funcionalidades do código estando no src. A classe principal sendo 
 
 Iniciando com a criação de classe para pode criar o objeto de carta, sendo essas utilizadas para o desenvolvimento do jogo.
 
-Nela se encontra as informações essencias que é necessário para uma carta existir: naipe, valor, peso(para calcular a distância entre cartas), vísibilidade e cor.
+Nela se encontra as informações essencias que é necessário para uma carta existir: naipe, valor, peso(para calcular a distância entre cartas), visibilidade e cor.
 
 ### Baralho
 
@@ -80,7 +80,9 @@ O padrão criacional Factory Method foi utilizado com o objetivo de diminuir as 
 O padrão comportamental Iterator foi usado para percorrer os elementos de qualquer pilha.
 
 
-# PADROES QUE PODERIAM SER UTILIZADOS
+## PADRÕES QUE PODERIAM SER UTILIZADOS
+
+Uma das maneiras de melhorar a organização do programa seria com a utilização de Factory Method para a organização dos controllers. Com ele, teríamos o controller principal que seria o padrão para todos os tipos de jogo de cartas e como subgrupo dele teria os específicos para cada jogo, com suas próprias regras.
 
 ## PONTOS FORTES E FRACOS
 
