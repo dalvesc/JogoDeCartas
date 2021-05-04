@@ -18,7 +18,6 @@ public abstract class Pilha {
 
     
     /** 
-     * 
      * Método que retorna a List de cartas.
      * 
      * @return List<Carta>
@@ -28,7 +27,6 @@ public abstract class Pilha {
     }
 
     /** 
-     * 
      * Método que adiciona uma carta na pilha.
      * 
      * @param carta
@@ -38,7 +36,6 @@ public abstract class Pilha {
     }
 
     /** 
-     * 
      * Método que remove a última carta da pilha, retornando-a.
      * 
      * @return Carta
@@ -50,7 +47,6 @@ public abstract class Pilha {
     }
 
     /** 
-     * 
      * Método que retorna o toString da pilha.
      * 
      * @return String

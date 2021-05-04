@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 
 /**
- *
  * Classe que contém o baralho criado.
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -26,7 +25,6 @@ public class Baralho {
 
     
     /** 
-     * 
      * Retorna o baralho
      * 
      * @return ArrayList<Carta>
@@ -37,7 +35,6 @@ public class Baralho {
 
     
     /** 
-     * 
      * Retorna a quantidade de baralhos do jogo
      * 
      * @return int
@@ -47,4 +44,3 @@ public class Baralho {
     }
 
 }
-    

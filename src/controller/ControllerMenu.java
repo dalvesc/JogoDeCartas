@@ -21,7 +21,6 @@ public class ControllerMenu {
     }
 
     /**
-     * 
      * Método que retorna o baralho embaralhado.
      * 
      * @return ArrayList<Carta> - retorna o baralho.

@@ -4,7 +4,6 @@ import model.Carta;
 
 
 /**
- * 
  * Classe para comparar as cartas.
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -15,7 +14,6 @@ public class CompararCartas {
 
     
     /**
-     * 
      * Método que compara os naipes e os pesos de duas cartas.
      * 
      * @return boolean - true forem do mesmo naipe e estiverem em ordem crescente.
@@ -25,7 +23,6 @@ public class CompararCartas {
     }
 
     /**
-     * 
      * Método que compara as cores e os pesos de duas cartas.
      * 
      * @return boolean - true se forem de cores diferentes e estiverem em ordem decrescente.
@@ -35,7 +32,6 @@ public class CompararCartas {
     }
 
     /**
-     * 
      * Método que compara os pesos de duas cartas.
      * 
      * @return int - 1 se a diferença entre os pesos for diretamente decrescente(formação de fileira),
@@ -51,7 +47,6 @@ public class CompararCartas {
     }
 
      /**
-     * 
      * Método que verifica se pode mover a(s) carta(s) de acordo com as regras da fundação e da fileira.
      * 
      * @param carta1 
@@ -73,7 +68,6 @@ public class CompararCartas {
     }
 
     /**
-     * 
      * Método que verifica se pode mover a(s) carta(s) para uma pilha vazia de acordo com as regras da
      * fundação e da fileira.
      * 
@@ -95,7 +89,6 @@ public class CompararCartas {
     }
 
     /**
-     * 
      * Verificar se as cartas estão viradas
      * 
      * @param carta1

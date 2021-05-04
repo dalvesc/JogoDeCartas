@@ -10,7 +10,6 @@ import util.MoverCartas;
 
 
 /**
- * 
  * Controller com funções para movimentações de cartas.
  * 
  *  @author Adlla Katarine e Daniel Alves

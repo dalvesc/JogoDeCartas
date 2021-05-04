@@ -6,7 +6,6 @@ import model.Carta;
 
 
 /**
- * 
  * Classe para embaralhar baralho.
  * 
  * @param baralho

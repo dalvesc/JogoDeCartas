@@ -19,7 +19,6 @@ public class Facade {
 
     
     /** 
-     * 
      * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
      * 
      * @param quantidade quantidade de cartas que irá exibir do estoque.
@@ -30,7 +29,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Exibir cartas da lista enviada.
      * 
      * @param cartas lista que quer exibir as cartas
@@ -41,7 +39,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Retorna fileiras
      * 
      * @return List<PilhaFileira>
@@ -51,7 +48,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Retorna estoque
      * 
      * @return PilhaEstoque
@@ -61,7 +57,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Retorna fundação
      * 
      * @return List<PilhaFundacao>
@@ -71,7 +66,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Retorna descarte
      * 
      * @return PilhaDescarte
@@ -81,7 +75,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Método que move carta da pilha de estoque para a pilha de descarte.
      * 
      * @param estoque lista do estoque(será removido daqui)
@@ -93,7 +86,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Método que move a pilha de descarte para a pilha de estoque.
      * 
      * @param descarte lista do descarte(será removido daqui).
@@ -104,7 +96,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Método que move uma carta da pilha de descarte para uma das pilhas de fileiras.
      * 
      * @param descarte lista do descarte(será removido daqui).
@@ -115,7 +106,6 @@ public class Facade {
     }
 
     /** 
-     * 
      * Método que move uma carta da pilha de descarte para uma das pilhas de fundação.
      * 
      * @param descarte lista do descarte(será removido daqui).
@@ -126,7 +116,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Método que move uma carta da pilha de fundacao para uma das pilhas de fileira.
      * 
      * @param fundacao lista da fundacao(será removido daqui).
@@ -137,7 +126,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Método que move uma ou mais carta(s) de uma fileira para outra.
      * 
      * @param fileira1 lista da fileira que será removida as cartas(será removido daqui).
@@ -149,7 +137,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Método que move uma carta de uma fileira para uma fundação.
      * 
      * @param fileira lista da fileira(será removido daqui).
@@ -160,7 +147,6 @@ public class Facade {
     }
     
     /** 
-     * 
      * Método que verifica se o jogo foi ganho, conferindo se toda as pilhas de fundações estão completas (com 13
      * cartas cada).
      * 

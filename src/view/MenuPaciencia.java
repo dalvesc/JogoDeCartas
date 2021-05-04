@@ -8,7 +8,6 @@ import model.Carta;
 
 
 /**
- * 
  * Menu com as opções pro jogo de Paciência
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -28,7 +27,6 @@ public class MenuPaciencia {
     
 
     /**
-     * 
      * Menu inicial do jogo de paciência
      * 
      */
@@ -138,7 +136,7 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
+     *
      * Função com opções para movimentação das cartas
      * 
      */
@@ -286,7 +284,6 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
      * Função para imprimir as fundações do jogo
      * 
      * @param opcao posição da fileira
@@ -302,7 +299,6 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
      * Função para imprimir as fileiras do jogo
      * 
      * @param opcao posição da fileira
@@ -316,7 +312,6 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
      * Função para imprimir cartas da lista
      * 
      * @param cartas lista de cartas que serão exibidas
@@ -330,7 +325,6 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
      * Exibir cartas contidas na lista que estão viradas
      * 
      * @param cartas lista que deseja exibir
@@ -348,7 +342,6 @@ public class MenuPaciencia {
     }
 
     /**
-     * 
      * Parabeniza o jogador, caso ganhe.
      * 
      * @return true caso tenha ganhado o jogo

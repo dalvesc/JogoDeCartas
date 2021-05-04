@@ -2,7 +2,6 @@ package model;
 
 
 /**
- *
  * Classe para criação da carta do jogo.
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -33,7 +32,7 @@ public class Carta {
     }
 
     /**
-     *
+     * 
      * Define a cor da carta utilizando o naipe dela
      * 
      */
@@ -45,7 +44,6 @@ public class Carta {
     }
 
     /**
-     *
      * Retorna naipe do jogo
      * 
      * @return naipe da carta
@@ -55,7 +53,6 @@ public class Carta {
     }
 
     /**
-     *
      * Retorna valor da carta
      * 
      * @return valor da carta
@@ -65,7 +62,6 @@ public class Carta {
     }
 
     /**
-     *
      * Retorna cor da carta
      * 
      * @param cor
@@ -75,7 +71,6 @@ public class Carta {
     }
 
     /**
-     *
      * Retorna peso da carta
      * 
      * @param peso
@@ -85,7 +80,6 @@ public class Carta {
     }
 
     /**
-     *
      * Retorna a visibilidade da carta
      * 
      * @return se ela está virada ou não
@@ -95,7 +89,6 @@ public class Carta {
     }
 
     /**
-     *
      * Define a visibilidade da carta
      * 
      * @param face qual a visibilidade que quer definir
@@ -106,7 +99,6 @@ public class Carta {
 
     
     /** 
-     * 
      * Impressão da carta
      * 
      * @return String

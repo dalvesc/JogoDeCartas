@@ -5,6 +5,7 @@ import java.util.List;
 import model.*;
 import util.MostrarCarta;
 
+
 /**
  * 
  * Controller para funções do jogo Paciência.
@@ -65,7 +66,7 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
+     *
      * Método que adiciona as cartas restantes no baralho ao estoque.
      * 
      */
@@ -75,7 +76,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que define a quantidade de cartas movidas de vez da pilha de estoque para a pilha de descarte.
      *
      * @param quantidade quantidade de cartas que irá exibir do estoque.
@@ -89,7 +89,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Exibir cartas da lista enviada.
      * 
      * @param cartas lista que quer exibir as cartas
@@ -100,7 +99,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que retorna uma List com as pilhas de fileira.
      * 
      * @return List<PilhaFileira>.
@@ -110,7 +108,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que retorna a pilha de estoque.
      * 
      * @return PilhaEstoque da carta.
@@ -120,7 +117,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que retorna uma List com as pilhas de fundação.
      * 
      * @return List<PilhaFundacao>
@@ -130,7 +126,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que retorna a pilha de descarte.
      * 
      * @return PilhaDescarte da carta.
@@ -140,7 +135,6 @@ public class ControllerPaciencia{
     }
 
     /**
-     * 
      * Método que verifica se o jogo foi ganho, conferindo se toda as pilhas de fundações estão completas (com 13
      * cartas cada).
      * 

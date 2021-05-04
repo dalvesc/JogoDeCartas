@@ -8,7 +8,6 @@ import model.PilhaFileira;
 
 
 /**
- * 
  * Classe responsável pela movimentação das cartas.
  *
  * @author Adlla Katarine e Daniel Alves
@@ -19,7 +18,6 @@ public class MoverCartas {
 
 
     /**
-     * 
      * Método que faz a movimentação de uma carta entre pilhas distintas ou de uma ou três cartas do estoque para
      * o descarte.
      * Também são feitas verificações se as cartas obedecem as regras de movimento das fileiras e fundações.

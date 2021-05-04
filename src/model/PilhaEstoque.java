@@ -7,7 +7,6 @@ import util.MostrarCarta;
 
 
 /**
- *
  * Classe que estende da classe abstrata Pilha.
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -19,7 +18,6 @@ public class PilhaEstoque extends Pilha{
     }
 
     /**
-     * 
      * Método que adiciona uma List de cartas no estoque (caso esteja vazio), inverte a ordem e chama o método
      * que oculta as cartas.
      * 
@@ -34,7 +32,6 @@ public class PilhaEstoque extends Pilha{
     }
 
     /**
-     * 
      * Método que verifica se tem carta(s) suficiente(s) no estoque para ser(em) movida(s).
      * 
      * @param qtdCartasMovidas quantidade de cartas que deseja ser movida.

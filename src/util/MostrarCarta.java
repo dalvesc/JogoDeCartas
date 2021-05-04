@@ -5,7 +5,6 @@ import model.Carta;
 
 
 /**
- *
  * Classe para exibir cartas de uma lista
  * falta comentar
  * 
@@ -16,7 +15,6 @@ public class MostrarCarta {
     private MostrarCarta(){}
     
     /**
-     * 
      * Método que oculta ou mostra a(s) carta(s) de uma pilha.
      * 
      * @param cartas lista de cartas.

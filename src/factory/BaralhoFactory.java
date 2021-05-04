@@ -8,7 +8,6 @@ import util.Embaralhar;
 
 
 /**
- *
  * Factory que cria o baralho.
  * 
  * @author Adlla Katarine e Daniel Alves
@@ -28,6 +27,7 @@ public class BaralhoFactory {
 
     /**
      * Método que cria o baralho e embaralha ele, retornando-o.
+     * 
      * @param qtdBaralho quantidade de baralhos escolhidos.
      * @return Baralho - retorna o baralho.
      */
@@ -38,7 +38,6 @@ public class BaralhoFactory {
     }
 
     /**
-     * 
      * Método que inicia o baralho.
      * 
      * @param qtdBaralho
@@ -58,5 +57,4 @@ public class BaralhoFactory {
             quantidadeBaralho++;
         } return cartas;
     }
-
 }
