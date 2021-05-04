@@ -234,24 +234,28 @@ public class MenuPaciencia {
                     System.out.println(separador);
                     System.out.println("\nDigite de qual fileira gostaria de mover a carta: ");
                     escolherPilha[0] = scan.nextInt();
-
-                    int qtdcartasFileira = imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getPilha());
-                    System.out.println("\nDigite qual carta (ou a partir de qual) gostaria de mover: ");
-                    int opcaoCartaEscolhida = scan.nextInt();
+                    if(escolherPilha[0]>0 && escolherPilha[0]<=7){
+                        int qtdcartasFileira = imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getPilha());
+                        System.out.println("\nDigite qual carta (ou a partir de qual) gostaria de mover: ");
+                        int opcaoCartaEscolhida = scan.nextInt();
                     
 
-                    System.out.println("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
-                    escolherPilha[1] = scan.nextInt();
-
-                    if((qtdcartasFileira-opcaoCartaEscolhida)>=0){
-                        //método pilha de fileira para fileiras
-                        facade.moverFileiraParaFileira(facade.getFileiras().get(escolherPilha[0]-1), facade.getFileiras().get(escolherPilha[1]-1), opcaoCartaEscolhida-1);
-                        continuarJogar = false;
-                    } else{
-                        System.out.println(ANSI_CYAN + "\nCarta indisponível para ser movida!!" + ANSI_RESET);
+                        System.out.println("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
+                        escolherPilha[1] = scan.nextInt();
+                        if(escolherPilha[1]>0 && escolherPilha[1]<=7){
+                            if((qtdcartasFileira-opcaoCartaEscolhida)>=0){
+                            //método pilha de fileira para fileiras
+                                facade.moverFileiraParaFileira(facade.getFileiras().get(escolherPilha[0]-1), facade.getFileiras().get(escolherPilha[1]-1), opcaoCartaEscolhida-1);
+                                continuarJogar = false;
+                            } else{
+                                System.out.println(ANSI_CYAN + "\nCarta indisponível para ser movida!!" + ANSI_RESET);
+                            }
+                            printOpcaoInvalida();
+                            continuarJogar = false;
+                        }
                     }
-                    
-                    
+                    printOpcaoInvalida();
+                    continuarJogar = false;
                     break;
 
                 case "0":
