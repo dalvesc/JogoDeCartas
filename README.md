@@ -20,7 +20,7 @@ Foi implementado uma factory, padrão factory method, para poder gerenciar a cri
 
 Para organização das pilhas de fundações, estoque, fileiras e descarte, foi utilizada uma classe abstrata Pilha que implementa os atributos/métodos comuns à todas as pilhas.
 
-Também foi adicionados métodos específicos em algumas pilhas, nas suas respectivas classes.
+Também foram adicionados métodos específicos em algumas pilhas, nas suas respectivas classes.
 
 ## **UTIL**
 
@@ -70,11 +70,25 @@ Sendo a responsável para inicialização do jogo, em que pergunta pro usuário 
 
 Este menu é responsável por todas opções de jogadas disponíveis ao jogo Paciência. Dividido em "dois" menus, um para escolher uma próxima jogada, como por exemplo mover cartas, e outro com as movimentações possíveis entre as pilhas. No "primeiro" menu é sempre verificado se o jogo foi ganho para que possa ser finalizado assim que o usuário complete as quatro fundações.
 
+## **Facade**
+O padrão estrutural Facade foi utilizado para fornecer uma interface mais simples ao Menu Paciência. Assim, esta classe reune todas as funcionalidades referentes aos três controllers e o manu pode se comunicar com elas indiretamente apenas pelo Facade.
+
+## **Factory Method**
+O padrão criacional Factory Method foi utilizado com o objetivo de diminuir as responsabilidades da classe Baralho e em sua facilidade de implementações de outros jogos com baralhos diferentes. O BaralhoFactory é responsável pela criação do baralho, quantidade de baralhos e por embaralha-los.
+
+## **Iterator**
+O padrão comportamental Iterator foi usado para percorrer os elementos de qualquer pilha.
+
 
 # PADROES QUE PODERIAM SER UTILIZADOS
 
-# PONTOS FORTER E FRACOS
+## PONTOS FORTES E FRACOS
+
+Apesar de conseguir separar muitos métodos para facilitar a implementação de novas funcionalidades, ainda têm coisas que poderiam ser melhoradas e separadas para se tornar um código melhor e evitar ainda mais repetição do código, como é no caso de alguns métodos em *ControllerPaciencia*.
+
+Utilizamos o padrão factory para que caso no futuro se decida implementar jogos que utilizem baralhos diferentes, com menos cartas ou utilizando a carta coringa, esse processo de alteração se torne mais facilitado.
 
 # MODELO CONCEITUAL
+<img src="./diagramas-uml/DiagramaConceitualUML.PNG"/>
 
 # MODELO DE BAIXO NÍVEL

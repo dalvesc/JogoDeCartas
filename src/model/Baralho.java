@@ -13,6 +13,7 @@ public class Baralho {
 
     private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
     private ArrayList<Carta> baralho;
+
     /**
      * Construtor da classe
      *
