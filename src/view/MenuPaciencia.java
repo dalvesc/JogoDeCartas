@@ -106,7 +106,7 @@ public class MenuPaciencia {
                                 System.out.println("\nCarta: " + facade.getFileiras().get(opcao-1).getPilha().get(facade.getFileiras().get(opcao-1).getPilha().size()-1));
                                 System.out.println(separador);
                             } else {
-                                System.out.println(ANSI_CYAN + "Pilha Vazia" + ANSI_RESET);
+                                System.out.println(ANSI_CYAN + "Pilha Vazia!!!" + ANSI_RESET);
                             }
                             break;
                         
@@ -230,7 +230,7 @@ public class MenuPaciencia {
                     System.out.println("\nDigite de qual fileira gostaria de mover a carta: ");
                     escolherPilha[0] = scan.nextInt();
 
-                    imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getPilha());
+                    int qtdcartasFileira = imprimirCartasDisponiveis(facade.getFileiras().get(escolherPilha[0]-1).getPilha());
                     System.out.println("\nDigite qual carta (ou a partir de qual) gostaria de mover: ");
                     int opcaoCartaEscolhida = scan.nextInt();
                     
@@ -238,9 +238,15 @@ public class MenuPaciencia {
                     System.out.println("\nDigite para qual fileira gostaria de mover a(s) carta(s): ");
                     escolherPilha[1] = scan.nextInt();
 
-                    //método pilha de fileira para fileiras
-                    facade.moverFileiraParaFileira(facade.getFileiras().get(escolherPilha[0]-1), facade.getFileiras().get(escolherPilha[1]-1), opcaoCartaEscolhida-1);
-                    continuarJogar = false;
+                    if((qtdcartasFileira-opcaoCartaEscolhida)>=0){
+                        //método pilha de fileira para fileiras
+                        facade.moverFileiraParaFileira(facade.getFileiras().get(escolherPilha[0]-1), facade.getFileiras().get(escolherPilha[1]-1), opcaoCartaEscolhida-1);
+                        continuarJogar = false;
+                    } else{
+                        System.out.println(ANSI_CYAN + "\nCarta indisponível para ser movida!!" + ANSI_RESET);
+                    }
+                    
+                    
                     break;
 
                 case 6:
@@ -324,7 +330,7 @@ public class MenuPaciencia {
      * 
      * @param cartas lista que deseja exibir
      */
-    private void imprimirCartasDisponiveis(List<Carta> cartas){
+    private int imprimirCartasDisponiveis(List<Carta> cartas){
         Iterator<Carta> it = cartas.iterator();
         int opcao = 1;
 
@@ -333,7 +339,7 @@ public class MenuPaciencia {
             if(carta.isVisivel()){
                 System.out.println("\n" + opcao + " - " + carta);
             } opcao++;
-        } 
+        } return opcao;
     }
 
     /**
