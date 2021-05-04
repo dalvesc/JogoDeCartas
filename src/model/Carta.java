@@ -3,6 +3,8 @@ package model;
 
 /**
  *
+ * Classe para criação da carta do jogo.
+ * 
  * @author Adlla Katarine e Daniel Alves
  */
 public class Carta {
@@ -30,6 +32,11 @@ public class Carta {
         setCor();
     }
 
+    /**
+     *
+     * Define a cor da carta utilizando o naipe dela
+     * 
+     */
     private void setCor() {
         if (this.naipe.equals("♣") || this.naipe.equals("♠"))
             this.cor = "PRETO";
@@ -39,8 +46,9 @@ public class Carta {
 
     /**
      *
-     * @return naipe da carta
+     * Retorna naipe do jogo
      * 
+     * @return naipe da carta
      */
     public String getNaipe() {
         return naipe;
@@ -48,8 +56,9 @@ public class Carta {
 
     /**
      *
-     * @return valor da carta
+     * Retorna valor da carta
      * 
+     * @return valor da carta
      */
     public String getValor() {
         return valor;
@@ -57,8 +66,9 @@ public class Carta {
 
     /**
      *
-     * @param cor
+     * Retorna cor da carta
      * 
+     * @param cor
      */
     public String getCor() {
         return cor;
@@ -66,8 +76,9 @@ public class Carta {
 
     /**
      *
-     * @param peso
+     * Retorna peso da carta
      * 
+     * @param peso
      */
     public int getPeso() {
         return peso;
@@ -75,8 +86,9 @@ public class Carta {
 
     /**
      *
-     * @return se ela está virada ou não
+     * Retorna a visibilidade da carta
      * 
+     * @return se ela está virada ou não
      */
     public boolean isVisivel() {
         return visivel;
@@ -84,13 +96,21 @@ public class Carta {
 
     /**
      *
-     * @param face
+     * Define a visibilidade da carta
      * 
+     * @param face qual a visibilidade que quer definir
      */
     public void setVisivel(boolean face) {
         this.visivel = face;
     }
 
+    
+    /** 
+     * 
+     * Impressão da carta
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         if(this.isVisivel()){
@@ -102,6 +122,4 @@ public class Carta {
             return cartaOculta;
         }
     }
-
-    //compareTo cores e valor diferente
 }

@@ -18,6 +18,12 @@ public class BaralhoFactory {
     private final String[] valores = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};//valores presente do baralho
     private final String[] naipes = {"♣", "♥", "♠", "♦"};//naipes do baralho
 
+    /**
+     * 
+     * Sendo construtor de uma factory não se inicializa nada
+     * servindo somente para sua criação.
+     * 
+     */
     public BaralhoFactory(){}
 
     /**
