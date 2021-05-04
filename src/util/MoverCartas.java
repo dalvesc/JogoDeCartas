@@ -34,11 +34,11 @@ public class MoverCartas {
         if(!cartas1.isEmpty()){
             for(int i = 0; i < quantidadeMover; i++){
                 if(!cartas2.isEmpty()){
-                    if(ComparacaoCartas.podeMover(cartas1.get(cartas1.size()-quantidadeMover), cartas2.get(cartas2.size()-1), tipoPilha)){
+                    if(CompararCartas.podeMover(cartas1.get(cartas1.size()-quantidadeMover), cartas2.get(cartas2.size()-1), tipoPilha)){
                         movimentar = true;
                     }
                 } else{
-                    if(ComparacaoCartas.movimentarParaPilhaVazia(cartas1.get(cartas1.size()-1), tipoPilha)){
+                    if(CompararCartas.movimentarParaPilhaVazia(cartas1.get(cartas1.size()-1), tipoPilha)){
                         movimentar = true;
                     }
                 }
@@ -65,11 +65,11 @@ public class MoverCartas {
 
         if(!fileira1.getPilha().isEmpty()){
            if(!fileira2.getPilha().isEmpty()) {
-               if(ComparacaoCartas.podeMover(fileira1.getPilha().get(quantidadeMover), fileira2.getPilha().get(fileira2.getPilha().size()-1) , tipoPilha)){
+               if(CompararCartas.podeMover(fileira1.getPilha().get(quantidadeMover), fileira2.getPilha().get(fileira2.getPilha().size()-1) , tipoPilha)){
                     movimentar = true;
                 }
            } else{
-                if(ComparacaoCartas.movimentarParaPilhaVazia(fileira1.getPilha().get(quantidadeMover), tipoPilha)){
+                if(CompararCartas.movimentarParaPilhaVazia(fileira1.getPilha().get(quantidadeMover), tipoPilha)){
                     movimentar = true;
                 }
             }

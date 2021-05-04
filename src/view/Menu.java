@@ -2,8 +2,6 @@ package view;
 
 import java.util.Scanner;
 
-import exceptions.AcaoProibida;
-
 
 /**
  * 
@@ -13,12 +11,15 @@ import exceptions.AcaoProibida;
  */
 public class Menu {
     private static Scanner scan = new Scanner(System.in);
+    public static final String ANSI_CYAN = "\u001B[36m";// transformar a cor da letra em ciano
+    public static final String ANSI_RESET = "\u001B[0m";//reseta a cor pro padrão
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         boolean continuarJogar = true;//variável para saber se o usuário quer continuar a jogar ou encerrar o programa
         int opcao;//opção escolhida pelo usuário
+        
         do{
-            System.out.println("\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
+            System.out.println("\n\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
 
             System.out.println("\nO que deseja?\n"
             + "[1] - Iniciar Jogo.\n"
@@ -36,7 +37,7 @@ public class Menu {
                     break;
 
                 default:
-                    throw new AcaoProibida();
+                    System.out.println(ANSI_CYAN + "Você digitou uma opção inválida!!! Escolha uma das opções disponíveis." + ANSI_RESET);
             }
         }while(continuarJogar);
     }
