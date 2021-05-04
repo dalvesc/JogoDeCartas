@@ -8,11 +8,11 @@ Após escolhido a opção 1. É exibida a mesa do jogo, monte de estoque, descar
 
 * **Opção 1** - **Virar carta do estoque para descarte**: o jogador escolhe se deseja virar 1 ou 3 cartas do monte de estoque que são, automaticamente, movidas para o monte de descarte.
 
-* **Opção 2** - **Virar carta da pilha de fileira**: quando a ultima carta da fileira está virada para baixo, o jogador irá pedir ao programa que ela vire para cima.a
+* **Opção 2** - **Virar carta da pilha de fileira**: quando a ultima carta da fileira está virada para baixo, o jogador irá pedir ao programa que ela vire para cima.
 
-* **Opção 3** - **Pedir dados da carta**: o usuário pode pedir para exibir alguma carta da fileira ou fundação.a
+* **Opção 3** - **Pedir dados da carta**: o usuário pode pedir para exibir alguma carta da fileira ou fundação.
 
-* **Opção 4** - **Mover cartas**: o usuário vai para o menu de movimentar as cartas para realizar ações no jogo.a
+* **Opção 4** - **Mover cartas**: o usuário vai para o menu de movimentar as cartas para realizar ações no jogo.
 
 * **Opção 5** - **Mover a pilha de descarte para a pilha de estoque, caso esteja vazia**: caso o monte de estoque já esteja vazia, todas as cartas no descarte, o jogador pode escolher que todas retornem para o descarte.
 
