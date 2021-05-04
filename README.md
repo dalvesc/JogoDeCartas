@@ -90,9 +90,14 @@ Apesar de conseguir separar muitos métodos para facilitar a implementação de 
 
 Utilizamos o padrão factory para que caso no futuro se decida implementar jogos que utilizem baralhos diferentes, com menos cartas ou utilizando a carta coringa, esse processo de alteração se torne mais facilitado.
 
+## MELHORIAS
+
+Uma melhorias que pode ser feita no futuro é a implantação de exceções para o tratamento de alguns erros do programa.
+
 # MODELO CONCEITUAL
 <img src="./img/diagramas-uml/DiagramaConceitualUML.png"/>
 
 Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/img/diagramas-uml/DiagramaConceitualUML.png>
 
 # MODELO DE BAIXO NÍVEL
+

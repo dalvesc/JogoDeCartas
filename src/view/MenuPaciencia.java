@@ -356,7 +356,7 @@ public class MenuPaciencia {
     public boolean parabenizarJogoGanho(){
         if(facade.verificarJogoGanho()){
             imprimirFundacoes(1);
-            System.out.println("\n" + "Parabéns!!! Você ganhou o jogo!");
+            System.out.println(ANSI_CYAN + "\n" + "Parabéns!!! Você ganhou o jogo!" + ANSI_RESET);
             return true;
         } 
         return false;

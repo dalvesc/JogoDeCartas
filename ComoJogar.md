@@ -2,7 +2,7 @@
 
 O jogo se inicia com o menu principal e duas opções: opção 1 para iniciar o jogo *paciência* e opção 2 para encerrar o programa.
 
-# *imagem do menu principal*
+<img src="./img/prints/MenuPrincipal.png"/>
 
 Após escolhido a opção 1. É exibida a mesa do jogo, monte de estoque, descarte, fundações e fileiras, e é dado ao jogador 6 opções: 
 
@@ -18,7 +18,7 @@ Após escolhido a opção 1. É exibida a mesa do jogo, monte de estoque, descar
 
 * **Opção 0** - **Iniciar jogo novamente**: o jogador retorna para o menu anterior para que possa ser reiniciado o jogo. 
 
-# *imagem opcoesPaciencia*
+<img src="./img/prints/OpcaoPaciencia.png"/>
 
 Escolhendo a *opção 4* o jogador é direcionado para o menu que ele pode escolher qual movimento ele deseja realizar:
 
@@ -34,6 +34,8 @@ Escolhendo a *opção 4* o jogador é direcionado para o menu que ele pode escol
 
 * **Opção 0** - **Retornar ao menu anterior**: retona ao menu anterior, caso não deseje realizar nenhum movimento.
 
-# *imagem menu movimento*
+<img src="./img/prints/MenuMovimento.png"/>
 
 Após o jogador ter finalizado o jogo, esgotado as cartas do estoque, descarte e fileiras e completado todas as fundações do jogo ele é parabenizado e automaticamente levado para o menu inicial do jogo para escolher se quer encerrar o jogo ou começar uma nova partida.
+
+<img src="./img/prints/JogoGanho.png"/>
